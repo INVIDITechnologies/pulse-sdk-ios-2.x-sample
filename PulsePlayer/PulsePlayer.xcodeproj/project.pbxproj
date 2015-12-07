@@ -1,0 +1,778 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2411BFB6D3E00C07A18 /* Main.storyboard */; };
+		C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */; };
+		C405B2471BFB6E2400C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2441BFB6E2400C07A18 /* Main.storyboard */; };
+		C405B2491BFB701400C07A18 /* VideoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C405B2481BFB701400C07A18 /* VideoItemCell.xib */; };
+		C405B24E1BFE19C500C07A18 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C405B24D1BFE19C500C07A18 /* PlayerViewController.m */; };
+		C4100D951BFB64CF00B3F348 /* AVAsset+Preloading.m in Sources */ = {isa = PBXBuildFile; fileRef = C44E41161BD77C0000B722CB /* AVAsset+Preloading.m */; };
+		C4100D961BFB64CF00B3F348 /* VideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47485C41BCD3B050056BD05 /* VideoItemCell.m */; };
+		C4100D971BFB64CF00B3F348 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBDE1BCBA8DC00653D49 /* AppDelegate.m */; };
+		C4100D981BFB64CF00B3F348 /* VideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D02B8B1BDA2DF100BED479 /* VideoItem.m */; };
+		C4100D9A1BFB64CF00B3F348 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBDB1BCBA8DC00653D49 /* main.m */; };
+		C4100D9B1BFB64CF00B3F348 /* VideoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47485BF1BCD3A080056BD05 /* VideoLibraryViewController.m */; };
+		C4100DA21BFB64CF00B3F348 /* library.json in Resources */ = {isa = PBXBuildFile; fileRef = C47485BC1BCD27BE0056BD05 /* library.json */; };
+		C4100DA41BFB64CF00B3F348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45CDBE61BCBA8DC00653D49 /* Assets.xcassets */; };
+		C4100DAC1BFB652B00B3F348 /* Pulse-tvos-debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DAB1BFB652B00B3F348 /* Pulse-tvos-debug.framework */; };
+		C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DB01BFB658800B3F348 /* AVFoundation.framework */; };
+		C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DB21BFB658D00B3F348 /* AVKit.framework */; };
+		C44E41171BD77C0000B722CB /* AVAsset+Preloading.m in Sources */ = {isa = PBXBuildFile; fileRef = C44E41161BD77C0000B722CB /* AVAsset+Preloading.m */; };
+		C45CDBDC1BCBA8DC00653D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBDB1BCBA8DC00653D49 /* main.m */; };
+		C45CDBDF1BCBA8DC00653D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBDE1BCBA8DC00653D49 /* AppDelegate.m */; };
+		C45CDBE71BCBA8DC00653D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45CDBE61BCBA8DC00653D49 /* Assets.xcassets */; };
+		C45CDBF51BCBA8DC00653D49 /* PulsePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBF41BCBA8DC00653D49 /* PulsePlayerTests.m */; };
+		C45CDC001BCBA8DC00653D49 /* PulsePlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBFF1BCBA8DC00653D49 /* PulsePlayerUITests.m */; };
+		C45CDC0E1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */; };
+		C45CDC0F1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */; };
+		C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC141BCBCE4700653D49 /* AVKit.framework */; };
+		C45CDC181BCBCED900653D49 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDC171BCBCED900653D49 /* PlayerViewController.m */; };
+		C45CDC191BCBCED900653D49 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDC171BCBCED900653D49 /* PlayerViewController.m */; };
+		C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */; };
+		C47485BD1BCD27BE0056BD05 /* library.json in Resources */ = {isa = PBXBuildFile; fileRef = C47485BC1BCD27BE0056BD05 /* library.json */; };
+		C47485C01BCD3A080056BD05 /* VideoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47485BF1BCD3A080056BD05 /* VideoLibraryViewController.m */; };
+		C47485C61BCD3B050056BD05 /* VideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47485C41BCD3B050056BD05 /* VideoItemCell.m */; };
+		C47485C71BCD3B050056BD05 /* VideoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47485C51BCD3B050056BD05 /* VideoItemCell.xib */; };
+		C4D02B8C1BDA2DF100BED479 /* VideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D02B8B1BDA2DF100BED479 /* VideoItem.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C45CDBF11BCBA8DC00653D49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C45CDBCF1BCBA8DC00653D49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C45CDBD61BCBA8DC00653D49;
+			remoteInfo = PulsePlayer;
+		};
+		C45CDBFC1BCBA8DC00653D49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C45CDBCF1BCBA8DC00653D49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C45CDBD61BCBA8DC00653D49;
+			remoteInfo = PulsePlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C405B2401BFB6D3E00C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C405B2431BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C405B2451BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C405B2481BFB701400C07A18 /* VideoItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoItemCell.xib; sourceTree = "<group>"; };
+		C405B24D1BFE19C500C07A18 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		C4100DA91BFB64CF00B3F348 /* PulsePlayer (TVOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PulsePlayer (TVOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4100DAA1BFB64CF00B3F348 /* Info (TVOS).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info (TVOS).plist"; path = "/Users/jacques/work/videoplaza/plugin_ios_2.x_sample/PulsePlayer/PulsePlayer/tvos/Info (TVOS).plist"; sourceTree = "<absolute>"; };
+		C4100DAB1BFB652B00B3F348 /* Pulse-tvos-debug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pulse-tvos-debug.framework"; path = "../Pulse/Pulse-tvos-debug.framework"; sourceTree = "<group>"; };
+		C4100DB01BFB658800B3F348 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		C4100DB21BFB658D00B3F348 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/AVKit.framework; sourceTree = DEVELOPER_DIR; };
+		C44E41151BD77C0000B722CB /* AVAsset+Preloading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset+Preloading.h"; sourceTree = "<group>"; };
+		C44E41161BD77C0000B722CB /* AVAsset+Preloading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+Preloading.m"; sourceTree = "<group>"; };
+		C45CDBD71BCBA8DC00653D49 /* PulsePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulsePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C45CDBDB1BCBA8DC00653D49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C45CDBDD1BCBA8DC00653D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C45CDBDE1BCBA8DC00653D49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C45CDBE61BCBA8DC00653D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C45CDBEB1BCBA8DC00653D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45CDBF01BCBA8DC00653D49 /* PulsePlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsePlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C45CDBF41BCBA8DC00653D49 /* PulsePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PulsePlayerTests.m; sourceTree = "<group>"; };
+		C45CDBF61BCBA8DC00653D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45CDBFB1BCBA8DC00653D49 /* PulsePlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsePlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C45CDBFF1BCBA8DC00653D49 /* PulsePlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PulsePlayerUITests.m; sourceTree = "<group>"; };
+		C45CDC011BCBA8DC00653D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pulse-debug.framework"; path = "../Pulse/Pulse-debug.framework"; sourceTree = "<group>"; };
+		C45CDC141BCBCE4700653D49 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		C45CDC161BCBCED900653D49 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		C45CDC171BCBCED900653D49 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C47485BC1BCD27BE0056BD05 /* library.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = library.json; sourceTree = "<group>"; };
+		C47485BE1BCD3A080056BD05 /* VideoLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoLibraryViewController.h; sourceTree = "<group>"; };
+		C47485BF1BCD3A080056BD05 /* VideoLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoLibraryViewController.m; sourceTree = "<group>"; };
+		C47485C31BCD3B050056BD05 /* VideoItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoItemCell.h; sourceTree = "<group>"; };
+		C47485C41BCD3B050056BD05 /* VideoItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoItemCell.m; sourceTree = "<group>"; };
+		C47485C51BCD3B050056BD05 /* VideoItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoItemCell.xib; sourceTree = "<group>"; };
+		C4D02B8A1BDA2DF100BED479 /* VideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoItem.h; sourceTree = "<group>"; };
+		C4D02B8B1BDA2DF100BED479 /* VideoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoItem.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4100D9C1BFB64CF00B3F348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
+				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
+				C4100DAC1BFB652B00B3F348 /* Pulse-tvos-debug.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBD41BCBA8DC00653D49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
+				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
+				C45CDC0E1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBED1BCBA8DC00653D49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45CDC0F1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBF81BCBA8DC00653D49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C405B23B1BFB6D1500C07A18 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDBEB1BCBA8DC00653D49 /* Info.plist */,
+				C45CDC171BCBCED900653D49 /* PlayerViewController.m */,
+				C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */,
+				C405B2441BFB6E2400C07A18 /* Main.storyboard */,
+				C47485C51BCD3B050056BD05 /* VideoItemCell.xib */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		C405B23C1BFB6D1500C07A18 /* tvos */ = {
+			isa = PBXGroup;
+			children = (
+				C4100DAA1BFB64CF00B3F348 /* Info (TVOS).plist */,
+				C405B24D1BFE19C500C07A18 /* PlayerViewController.m */,
+				C405B2411BFB6D3E00C07A18 /* Main.storyboard */,
+				C405B2481BFB701400C07A18 /* VideoItemCell.xib */,
+			);
+			path = tvos;
+			sourceTree = "<group>";
+		};
+		C4100DAD1BFB655500B3F348 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4100DAF1BFB656200B3F348 /* TVOS */,
+				C4100DAE1BFB655D00B3F348 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4100DAE1BFB655D00B3F348 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */,
+				C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */,
+				C45CDC141BCBCE4700653D49 /* AVKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C4100DAF1BFB656200B3F348 /* TVOS */ = {
+			isa = PBXGroup;
+			children = (
+				C4100DAB1BFB652B00B3F348 /* Pulse-tvos-debug.framework */,
+				C4100DB21BFB658D00B3F348 /* AVKit.framework */,
+				C4100DB01BFB658800B3F348 /* AVFoundation.framework */,
+			);
+			name = TVOS;
+			sourceTree = "<group>";
+		};
+		C45CDBCE1BCBA8DC00653D49 = {
+			isa = PBXGroup;
+			children = (
+				C4100DAD1BFB655500B3F348 /* Frameworks */,
+				C45CDBD91BCBA8DC00653D49 /* PulsePlayer */,
+				C45CDBF31BCBA8DC00653D49 /* PulsePlayerTests */,
+				C45CDBFE1BCBA8DC00653D49 /* PulsePlayerUITests */,
+				C45CDBD81BCBA8DC00653D49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C45CDBD81BCBA8DC00653D49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDBD71BCBA8DC00653D49 /* PulsePlayer.app */,
+				C45CDBF01BCBA8DC00653D49 /* PulsePlayerTests.xctest */,
+				C45CDBFB1BCBA8DC00653D49 /* PulsePlayerUITests.xctest */,
+				C4100DA91BFB64CF00B3F348 /* PulsePlayer (TVOS).app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C45CDBD91BCBA8DC00653D49 /* PulsePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDBDD1BCBA8DC00653D49 /* AppDelegate.h */,
+				C45CDBDE1BCBA8DC00653D49 /* AppDelegate.m */,
+				C47485CA1BCD4DA70056BD05 /* AVPlayer */,
+				C4D02B891BDA2DD100BED479 /* Model */,
+				C47485C81BCD4D1C0056BD05 /* UI */,
+				C405B23B1BFB6D1500C07A18 /* ios */,
+				C405B23C1BFB6D1500C07A18 /* tvos */,
+				C45CDBE61BCBA8DC00653D49 /* Assets.xcassets */,
+				C45CDBDA1BCBA8DC00653D49 /* Supporting Files */,
+			);
+			path = PulsePlayer;
+			sourceTree = "<group>";
+		};
+		C45CDBDA1BCBA8DC00653D49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDBDB1BCBA8DC00653D49 /* main.m */,
+				C47485BC1BCD27BE0056BD05 /* library.json */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C45CDBF31BCBA8DC00653D49 /* PulsePlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDBF41BCBA8DC00653D49 /* PulsePlayerTests.m */,
+				C45CDBF61BCBA8DC00653D49 /* Info.plist */,
+			);
+			path = PulsePlayerTests;
+			sourceTree = "<group>";
+		};
+		C45CDBFE1BCBA8DC00653D49 /* PulsePlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C45CDBFF1BCBA8DC00653D49 /* PulsePlayerUITests.m */,
+				C45CDC011BCBA8DC00653D49 /* Info.plist */,
+			);
+			path = PulsePlayerUITests;
+			sourceTree = "<group>";
+		};
+		C47485C81BCD4D1C0056BD05 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C47485BE1BCD3A080056BD05 /* VideoLibraryViewController.h */,
+				C47485BF1BCD3A080056BD05 /* VideoLibraryViewController.m */,
+				C47485C31BCD3B050056BD05 /* VideoItemCell.h */,
+				C47485C41BCD3B050056BD05 /* VideoItemCell.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		C47485CA1BCD4DA70056BD05 /* AVPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				C44E41151BD77C0000B722CB /* AVAsset+Preloading.h */,
+				C44E41161BD77C0000B722CB /* AVAsset+Preloading.m */,
+				C45CDC161BCBCED900653D49 /* PlayerViewController.h */,
+			);
+			name = AVPlayer;
+			sourceTree = "<group>";
+		};
+		C4D02B891BDA2DD100BED479 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4D02B8A1BDA2DF100BED479 /* VideoItem.h */,
+				C4D02B8B1BDA2DF100BED479 /* VideoItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4100D931BFB64CF00B3F348 /* PulsePlayer (TVOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4100DA61BFB64CF00B3F348 /* Build configuration list for PBXNativeTarget "PulsePlayer (TVOS)" */;
+			buildPhases = (
+				C4100D941BFB64CF00B3F348 /* Sources */,
+				C4100D9C1BFB64CF00B3F348 /* Frameworks */,
+				C4100DA01BFB64CF00B3F348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PulsePlayer (TVOS)";
+			productName = PulsePlayer;
+			productReference = C4100DA91BFB64CF00B3F348 /* PulsePlayer (TVOS).app */;
+			productType = "com.apple.product-type.application";
+		};
+		C45CDBD61BCBA8DC00653D49 /* PulsePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45CDC041BCBA8DC00653D49 /* Build configuration list for PBXNativeTarget "PulsePlayer" */;
+			buildPhases = (
+				C45CDBD31BCBA8DC00653D49 /* Sources */,
+				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
+				C45CDBD51BCBA8DC00653D49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PulsePlayer;
+			productName = PulsePlayer;
+			productReference = C45CDBD71BCBA8DC00653D49 /* PulsePlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C45CDBEF1BCBA8DC00653D49 /* PulsePlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45CDC071BCBA8DC00653D49 /* Build configuration list for PBXNativeTarget "PulsePlayerTests" */;
+			buildPhases = (
+				C45CDBEC1BCBA8DC00653D49 /* Sources */,
+				C45CDBED1BCBA8DC00653D49 /* Frameworks */,
+				C45CDBEE1BCBA8DC00653D49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C45CDBF21BCBA8DC00653D49 /* PBXTargetDependency */,
+			);
+			name = PulsePlayerTests;
+			productName = PulsePlayerTests;
+			productReference = C45CDBF01BCBA8DC00653D49 /* PulsePlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C45CDBFA1BCBA8DC00653D49 /* PulsePlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45CDC0A1BCBA8DC00653D49 /* Build configuration list for PBXNativeTarget "PulsePlayerUITests" */;
+			buildPhases = (
+				C45CDBF71BCBA8DC00653D49 /* Sources */,
+				C45CDBF81BCBA8DC00653D49 /* Frameworks */,
+				C45CDBF91BCBA8DC00653D49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C45CDBFD1BCBA8DC00653D49 /* PBXTargetDependency */,
+			);
+			name = PulsePlayerUITests;
+			productName = PulsePlayerUITests;
+			productReference = C45CDBFB1BCBA8DC00653D49 /* PulsePlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C45CDBCF1BCBA8DC00653D49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Ooyala;
+				TargetAttributes = {
+					C45CDBD61BCBA8DC00653D49 = {
+						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					C45CDBEF1BCBA8DC00653D49 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = C45CDBD61BCBA8DC00653D49;
+					};
+					C45CDBFA1BCBA8DC00653D49 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = C45CDBD61BCBA8DC00653D49;
+					};
+				};
+			};
+			buildConfigurationList = C45CDBD21BCBA8DC00653D49 /* Build configuration list for PBXProject "PulsePlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C45CDBCE1BCBA8DC00653D49;
+			productRefGroup = C45CDBD81BCBA8DC00653D49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C45CDBD61BCBA8DC00653D49 /* PulsePlayer */,
+				C4100D931BFB64CF00B3F348 /* PulsePlayer (TVOS) */,
+				C45CDBEF1BCBA8DC00653D49 /* PulsePlayerTests */,
+				C45CDBFA1BCBA8DC00653D49 /* PulsePlayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4100DA01BFB64CF00B3F348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C405B2491BFB701400C07A18 /* VideoItemCell.xib in Resources */,
+				C4100DA21BFB64CF00B3F348 /* library.json in Resources */,
+				C4100DA41BFB64CF00B3F348 /* Assets.xcassets in Resources */,
+				C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBD51BCBA8DC00653D49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47485BD1BCD27BE0056BD05 /* library.json in Resources */,
+				C405B2471BFB6E2400C07A18 /* Main.storyboard in Resources */,
+				C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */,
+				C47485C71BCD3B050056BD05 /* VideoItemCell.xib in Resources */,
+				C45CDBE71BCBA8DC00653D49 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBEE1BCBA8DC00653D49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBF91BCBA8DC00653D49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4100D941BFB64CF00B3F348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4100D951BFB64CF00B3F348 /* AVAsset+Preloading.m in Sources */,
+				C4100D961BFB64CF00B3F348 /* VideoItemCell.m in Sources */,
+				C4100D971BFB64CF00B3F348 /* AppDelegate.m in Sources */,
+				C4100D981BFB64CF00B3F348 /* VideoItem.m in Sources */,
+				C405B24E1BFE19C500C07A18 /* PlayerViewController.m in Sources */,
+				C4100D9A1BFB64CF00B3F348 /* main.m in Sources */,
+				C4100D9B1BFB64CF00B3F348 /* VideoLibraryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBD31BCBA8DC00653D49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44E41171BD77C0000B722CB /* AVAsset+Preloading.m in Sources */,
+				C47485C61BCD3B050056BD05 /* VideoItemCell.m in Sources */,
+				C45CDBDF1BCBA8DC00653D49 /* AppDelegate.m in Sources */,
+				C4D02B8C1BDA2DF100BED479 /* VideoItem.m in Sources */,
+				C45CDC181BCBCED900653D49 /* PlayerViewController.m in Sources */,
+				C45CDBDC1BCBA8DC00653D49 /* main.m in Sources */,
+				C47485C01BCD3A080056BD05 /* VideoLibraryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBEC1BCBA8DC00653D49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45CDBF51BCBA8DC00653D49 /* PulsePlayerTests.m in Sources */,
+				C45CDC191BCBCED900653D49 /* PlayerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45CDBF71BCBA8DC00653D49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45CDC001BCBA8DC00653D49 /* PulsePlayerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C45CDBF21BCBA8DC00653D49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C45CDBD61BCBA8DC00653D49 /* PulsePlayer */;
+			targetProxy = C45CDBF11BCBA8DC00653D49 /* PBXContainerItemProxy */;
+		};
+		C45CDBFD1BCBA8DC00653D49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C45CDBD61BCBA8DC00653D49 /* PulsePlayer */;
+			targetProxy = C45CDBFC1BCBA8DC00653D49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C405B2411BFB6D3E00C07A18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C405B2401BFB6D3E00C07A18 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C405B2431BFB6E2400C07A18 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C405B2441BFB6E2400C07A18 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C405B2451BFB6E2400C07A18 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4100DA71BFB64CF00B3F348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/tvos/Info (TVOS).plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		C4100DA81BFB64CF00B3F348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/tvos/Info (TVOS).plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		C45CDC021BCBA8DC00653D49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = ../Pulse;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C45CDC031BCBA8DC00653D49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = ../Pulse;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C45CDC051BCBA8DC00653D49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C45CDC061BCBA8DC00653D49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C45CDC081BCBA8DC00653D49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PulsePlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulsePlayer.app/PulsePlayer";
+			};
+			name = Debug;
+		};
+		C45CDC091BCBA8DC00653D49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PulsePlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulsePlayer.app/PulsePlayer";
+			};
+			name = Release;
+		};
+		C45CDC0B1BCBA8DC00653D49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PulsePlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PulsePlayer;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C45CDC0C1BCBA8DC00653D49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PulsePlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PulsePlayer;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4100DA61BFB64CF00B3F348 /* Build configuration list for PBXNativeTarget "PulsePlayer (TVOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4100DA71BFB64CF00B3F348 /* Debug */,
+				C4100DA81BFB64CF00B3F348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45CDBD21BCBA8DC00653D49 /* Build configuration list for PBXProject "PulsePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45CDC021BCBA8DC00653D49 /* Debug */,
+				C45CDC031BCBA8DC00653D49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45CDC041BCBA8DC00653D49 /* Build configuration list for PBXNativeTarget "PulsePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45CDC051BCBA8DC00653D49 /* Debug */,
+				C45CDC061BCBA8DC00653D49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45CDC071BCBA8DC00653D49 /* Build configuration list for PBXNativeTarget "PulsePlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45CDC081BCBA8DC00653D49 /* Debug */,
+				C45CDC091BCBA8DC00653D49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45CDC0A1BCBA8DC00653D49 /* Build configuration list for PBXNativeTarget "PulsePlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45CDC0B1BCBA8DC00653D49 /* Debug */,
+				C45CDC0C1BCBA8DC00653D49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C45CDBCF1BCBA8DC00653D49 /* Project object */;
+}

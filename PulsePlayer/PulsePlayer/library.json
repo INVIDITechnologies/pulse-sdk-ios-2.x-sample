@@ -1,0 +1,69 @@
+[{
+  "tags":              [],
+  "content-title":     "No ads",
+  "content-id":        "demo-none",
+  "content-duration":  52,
+  "content-url":       "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":              ["standard-prerolls"],
+  "content-title":     "Preroll demo",
+  "content-id":        "demo-preroll",
+  "content-duration":  52,
+  "content-url":       "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":              ["standard-midrolls"],
+  "midroll-positions": [15, 30],
+  "content-title":     "Midroll demo",
+  "content-id":        "demo-midroll",
+  "content-duration":  52,
+  "content-url":       "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["standard-postrolls"],
+  "content-title":    "Postroll demo",
+  "content-id":       "demo-postrolls",
+  "content-duration": 52,
+  "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["standard-linears"],
+  "midroll-positions": [15, 30],
+  "content-title":    "Pre-/mid-/postroll demo",
+  "content-id":       "demo",
+  "content-duration": 52,
+  "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["standard-linears"],
+  "category":         "frequency-capped-1min",
+  "midroll-positions": [15, 30],
+  "content-title":    "Frequency capping demo",
+  "content-id":       "demo-freq-capping",
+  "content-duration": 52,
+  "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["preroll-media-invalid"],
+  "content-title":    "Preroll demo - Ad media file invalid",
+  "content-id":       "demo-preroll-invalid",
+  "content-duration": 52,
+  "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["preroll-media-timeout"],
+  "content-title":    "Preroll demo - Ad media file timeout",
+  "content-id":       "demo-preroll-timeout",
+  "content-duration": 52,
+  "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["preroll-media-404"],
+  "content-title":    "Preroll demo - Ad media file 404",
+  "content-id":       "demo-preroll-timeout",
+  "content-duration": 52,
+  "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+}, {
+  "tags":             [],
+  "content-title":    "Content timeout",
+  "content-id":       "content-timeout",
+  "content-url":      "https://service.cdn.test-feature.videoplaza.org/creatives/assets/timeout.mp4"
+}, {
+  "tags":             [],
+  "content-title":    "Content invalid",
+  "content-id":       "content-invalid",
+  "content-url":      "https://pulse-demo.videoplaza.tv/proxy/pulse-demo/bad_media.mp4"
+}]
