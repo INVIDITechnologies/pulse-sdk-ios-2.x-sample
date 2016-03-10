@@ -10,7 +10,7 @@
 #import <AVKit/AVKit.h>
 #import "PlayerViewController.h"
 #import "AVAsset+Preloading.h"
-
+#import "SkipViewController.h"
 
 typedef enum : NSUInteger {
   PlayerStateIdle = 0,
@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
 /*
  An View Controller for playing back video on tvOS devices like the Apple TV.
  */
-@interface PlayerViewController () <OOPulseSessionDelegate> {
+@interface PlayerViewController () <OOPulseSessionDelegate, SkipViewControllerDelegate> {
   // Keeps tracks of AVPlayer timePeriod observer
   id playerPeriodicObserver;
 
@@ -30,6 +30,7 @@ typedef enum : NSUInteger {
   float playbackRateBeforeBackground;
 }
 
+@property (strong, nonatomic) SkipViewController *skipViewController;
 @property (strong, nonatomic) AVPlayerViewController *playerViewController;
 @property (assign, nonatomic) PlayerState state;
 
@@ -39,7 +40,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) AVPlayerItem *contentItem;
 @property (strong, nonatomic) AVAsset *contentAsset;
 @property (strong, nonatomic) AVAsset *adAsset;
-@property (strong, nonatomic) id<OOPulseVideoAd> ad;
+@property (weak, nonatomic) id<OOPulseVideoAd> ad;
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
@@ -92,6 +93,13 @@ typedef enum : NSUInteger {
   [self addChildViewController:self.playerViewController];
   [self.view addSubview:self.playerViewController.view];
   [self.playerViewController.view setFrame:self.view.frame];
+  
+  // Create a skip view controller
+  self.skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
+  self.skipViewController.delegate = self;
+  [self addChildViewController:self.skipViewController];
+  [self.view addSubview:self.skipViewController.view];
+  [self.skipViewController.view setFrame:CGRectInset(self.view.frame, 0, 20)];
 
   // Create a loading indicator, and add it to our view
   self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:self.view.frame];
@@ -146,6 +154,10 @@ typedef enum : NSUInteger {
   [self.player removeTimeObserver:playerPeriodicObserver];
 }
 
+- (UIView *)preferredFocusedView
+{
+  return self.skipViewController.view;
+}
 
 #pragma mark - Video playback support
 
@@ -192,6 +204,7 @@ typedef enum : NSUInteger {
     [self.ad adResumed];
   }
   [self.player setRate:playbackRateBeforeBackground];
+
 }
 
 - (void)onPlaybackFinished:(NSNotification *)notification
@@ -217,17 +230,26 @@ typedef enum : NSUInteger {
       || [self isAssetPlaying:self.contentAsset]) {
 
     if (self.state == PlayerStateLoading) {
-      if (self.adAsset)
+      if (self.adAsset) {
+        [self.skipViewController updateWithSkippable:[self.ad isSkippable]
+                                          skipOffset:[self.ad skipOffset]
+                                          adPosition:0];
         [self.ad adStarted];
+      }
       else
         [self.session contentStarted];
+      
       [self setIsLoading:NO];
     }
     else {
       NSTimeInterval position = (NSTimeInterval)time.value/time.timescale;
 
-      if (self.adAsset)
+      if (self.adAsset) {
+        [self.skipViewController updateWithSkippable:[self.ad isSkippable]
+                                          skipOffset:[self.ad skipOffset]
+                                          adPosition:position];
         [self.ad adPositionChanged:position];
+      }
       else
         [self.session contentPositionChanged:position];
     }
@@ -244,6 +266,8 @@ typedef enum : NSUInteger {
   [self setIsLoading:YES];
 
   [self.playerViewController setRequiresLinearPlayback:NO];
+  self.adAsset = nil;
+  self.skipViewController.view.hidden = YES;
 
   if (self.contentItem)
     [self play:self.contentItem];
@@ -257,10 +281,11 @@ typedef enum : NSUInteger {
   }
 }
 
-- (void)startAdBreak
+- (void)startAdBreak:(id<OOPulseAdBreak>)adBreak
 {
   NSLog(@"OOPulseSessionDelegate.startAdBreak");
-
+  [self.player pause];
+  [self.player replaceCurrentItemWithPlayerItem:nil];
   [self.playerViewController setRequiresLinearPlayback:YES];
   [self setIsLoading:YES];
 }
@@ -323,6 +348,14 @@ typedef enum : NSUInteger {
 
   [self.playerViewController.view setHidden:loading];
   self.state = loading ? PlayerStateLoading : PlayerStatePlaying;
+}
+
+
+#pragma mark - SkipViewControllerDelegate
+
+- (void)skipButtonWasPressed
+{
+  [self.ad adSkipped];
 }
 
 @end

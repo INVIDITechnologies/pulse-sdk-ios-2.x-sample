@@ -37,7 +37,7 @@
   //     user identifier here.
   // Refer to:
   //     http://support.ooyala.com/developers/ad-documentation/oadtech/ad_serving/dg/integration_sdk_parameter.html
-  [OOPulse setPulseHost:@"https://pulse-demo.videoplaza.tv" deviceContainer:nil persistentId:nil];
+  [OOPulse setPulseHost:@"https://pulse-demo.videoplaza.tv" deviceContainer:nil persistentId:[[NSUUID UUID] UUIDString]];
 
   // Set audio session category:
   //   Playback only. Plays audio even with the screen locked and with the

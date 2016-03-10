@@ -40,6 +40,10 @@
 		C47485C61BCD3B050056BD05 /* VideoItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47485C41BCD3B050056BD05 /* VideoItemCell.m */; };
 		C47485C71BCD3B050056BD05 /* VideoItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47485C51BCD3B050056BD05 /* VideoItemCell.xib */; };
 		C4D02B8C1BDA2DF100BED479 /* VideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D02B8B1BDA2DF100BED479 /* VideoItem.m */; };
+		C4D8BC381C906822001D8E45 /* SkipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8BC361C906822001D8E45 /* SkipViewController.m */; };
+		C4D8BC391C906822001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC371C906822001D8E45 /* SkipViewController.xib */; };
+		C4D8BC3A1C908A22001D8E45 /* SkipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8BC361C906822001D8E45 /* SkipViewController.m */; };
+		C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		C47485C51BCD3B050056BD05 /* VideoItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoItemCell.xib; sourceTree = "<group>"; };
 		C4D02B8A1BDA2DF100BED479 /* VideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoItem.h; sourceTree = "<group>"; };
 		C4D02B8B1BDA2DF100BED479 /* VideoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoItem.m; sourceTree = "<group>"; };
+		C4D8BC351C906822001D8E45 /* SkipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkipViewController.h; sourceTree = "<group>"; };
+		C4D8BC361C906822001D8E45 /* SkipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkipViewController.m; sourceTree = "<group>"; };
+		C4D8BC371C906822001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = ../SkipViewController.xib; sourceTree = "<group>"; };
+		C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = PulsePlayer/tvos/SkipViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 				C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */,
 				C405B2441BFB6E2400C07A18 /* Main.storyboard */,
 				C47485C51BCD3B050056BD05 /* VideoItemCell.xib */,
+				C4D8BC371C906822001D8E45 /* SkipViewController.xib */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 				C405B24D1BFE19C500C07A18 /* PlayerViewController.m */,
 				C405B2411BFB6D3E00C07A18 /* Main.storyboard */,
 				C405B2481BFB701400C07A18 /* VideoItemCell.xib */,
+				C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */,
 			);
 			path = tvos;
 			sourceTree = "<group>";
@@ -262,6 +272,8 @@
 				C47485BF1BCD3A080056BD05 /* VideoLibraryViewController.m */,
 				C47485C31BCD3B050056BD05 /* VideoItemCell.h */,
 				C47485C41BCD3B050056BD05 /* VideoItemCell.m */,
+				C4D8BC351C906822001D8E45 /* SkipViewController.h */,
+				C4D8BC361C906822001D8E45 /* SkipViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -413,6 +425,7 @@
 			files = (
 				C405B2491BFB701400C07A18 /* VideoItemCell.xib in Resources */,
 				C4100DA21BFB64CF00B3F348 /* library.json in Resources */,
+				C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */,
 				C4100DA41BFB64CF00B3F348 /* Assets.xcassets in Resources */,
 				C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */,
 			);
@@ -427,6 +440,7 @@
 				C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */,
 				C47485C71BCD3B050056BD05 /* VideoItemCell.xib in Resources */,
 				C45CDBE71BCBA8DC00653D49 /* Assets.xcassets in Resources */,
+				C4D8BC391C906822001D8E45 /* SkipViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +470,7 @@
 				C4100D971BFB64CF00B3F348 /* AppDelegate.m in Sources */,
 				C4100D981BFB64CF00B3F348 /* VideoItem.m in Sources */,
 				C405B24E1BFE19C500C07A18 /* PlayerViewController.m in Sources */,
+				C4D8BC3A1C908A22001D8E45 /* SkipViewController.m in Sources */,
 				C4100D9A1BFB64CF00B3F348 /* main.m in Sources */,
 				C4100D9B1BFB64CF00B3F348 /* VideoLibraryViewController.m in Sources */,
 			);
@@ -470,6 +485,7 @@
 				C45CDBDF1BCBA8DC00653D49 /* AppDelegate.m in Sources */,
 				C4D02B8C1BDA2DF100BED479 /* VideoItem.m in Sources */,
 				C45CDC181BCBCED900653D49 /* PlayerViewController.m in Sources */,
+				C4D8BC381C906822001D8E45 /* SkipViewController.m in Sources */,
 				C45CDBDC1BCBA8DC00653D49 /* main.m in Sources */,
 				C47485C01BCD3A080056BD05 /* VideoLibraryViewController.m in Sources */,
 			);

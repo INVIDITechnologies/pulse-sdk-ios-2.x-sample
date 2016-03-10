@@ -31,6 +31,22 @@
   "content-duration": 52,
   "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
 },{
+ "tags":             ["standard-linears"],
+ "category":         "skip-always",
+ "midroll-positions": [15, 30],
+ "content-title":    "Pre-/mid-/postroll skippable",
+ "content-id":       "demo",
+ "content-duration": 52,
+ "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+ "tags":             ["standard-linears"],
+ "category":         "skip-after-first",
+ "midroll-positions": [15, 30],
+ "content-title":    "Pre-/mid-/postroll skip after first",
+ "content-id":       "demo",
+ "content-duration": 52,
+ "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
   "tags":             ["standard-linears"],
   "category":         "frequency-capped-1min",
   "midroll-positions": [15, 30],
