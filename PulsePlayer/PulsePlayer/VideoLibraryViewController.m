@@ -17,7 +17,7 @@
 
 #define VIDEO_CELL_REUSE_ID @"VideoItemCell"
 
-@interface VideoLibraryViewController () <PlayerViewControllerDelegate>
+@interface VideoLibraryViewController ()
 
 @property (strong, nonatomic) PlayerViewController *playerViewController;
 
@@ -46,7 +46,6 @@
 - (void)playVideo:(NSInteger)index
 {
   VideoItem *videoItem = self.videos[index];
-  self.playerViewController.delegate = self;
   
   [self presentViewController:self.playerViewController animated:YES completion:^{
     

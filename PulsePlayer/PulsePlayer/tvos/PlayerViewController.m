@@ -40,7 +40,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) AVPlayerItem *contentItem;
 @property (strong, nonatomic) AVAsset *contentAsset;
 @property (strong, nonatomic) AVAsset *adAsset;
-@property (weak, nonatomic) id<OOPulseVideoAd> ad;
+@property (weak, nonatomic) id<OOPulseVideoAd> videoAd;
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
 
@@ -52,7 +52,7 @@ typedef enum : NSUInteger {
 {
   self = [super init];
   if (self) {
-    _playerViewController = [[AVPlayerViewController alloc] init];
+    _skinViewController = [[AVPlayerViewController alloc] init];
   }
   return self;
 }
@@ -137,7 +137,7 @@ typedef enum : NSUInteger {
 {
   [self.player replaceCurrentItemWithPlayerItem:nil];
   [self.player cancelPendingPrerolls];
-  self.ad = nil;
+  self.videoAd = nil;
   self.adAsset = nil;
   self.contentItem = nil;
   self.contentAsset = [AVAsset assetWithURL:url];
@@ -194,14 +194,14 @@ typedef enum : NSUInteger {
   playbackRateBeforeBackground = self.player.rate;
   if ([self isAssetPlaying:self.adAsset]) {
     [self.player pause];
-    [self.ad adPaused];
+    [self.videoAd adPaused];
   }
 }
 
 - (void)applicationWillEnterForeground
 {
   if (playbackRateBeforeBackground > 0 && [self isAssetPaused:self.adAsset]) {
-    [self.ad adResumed];
+    [self.videoAd adResumed];
   }
   [self.player setRate:playbackRateBeforeBackground];
 
@@ -213,7 +213,7 @@ typedef enum : NSUInteger {
   dispatch_async(dispatch_get_main_queue(), ^{
     if ([notification.object asset] == self.adAsset) {
       self.adAsset = nil;
-      [self.ad adFinished];
+      [self.videoAd adFinished];
     }
     else if ([notification.object asset] == self.contentAsset) {
       [self.session contentFinished];
@@ -231,10 +231,10 @@ typedef enum : NSUInteger {
 
     if (self.state == PlayerStateLoading) {
       if (self.adAsset) {
-        [self.skipViewController updateWithSkippable:[self.ad isSkippable]
-                                          skipOffset:[self.ad skipOffset]
+        [self.skipViewController updateWithSkippable:[self.videoAd isSkippable]
+                                          skipOffset:[self.videoAd skipOffset]
                                           adPosition:0];
-        [self.ad adStarted];
+        [self.videoAd adStarted];
       }
       else
         [self.session contentStarted];
@@ -245,10 +245,10 @@ typedef enum : NSUInteger {
       NSTimeInterval position = (NSTimeInterval)time.value/time.timescale;
 
       if (self.adAsset) {
-        [self.skipViewController updateWithSkippable:[self.ad isSkippable]
-                                          skipOffset:[self.ad skipOffset]
+        [self.skipViewController updateWithSkippable:[self.videoAd isSkippable]
+                                          skipOffset:[self.videoAd skipOffset]
                                           adPosition:position];
-        [self.ad adPositionChanged:position];
+        [self.videoAd adPositionChanged:position];
       }
       else
         [self.session contentPositionChanged:position];
@@ -303,7 +303,7 @@ typedef enum : NSUInteger {
   [self setIsLoading:YES];
 
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
-    self.ad = ad;
+    self.videoAd = ad;
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
@@ -355,7 +355,7 @@ typedef enum : NSUInteger {
 
 - (void)skipButtonWasPressed
 {
-  [self.ad adSkipped];
+  [self.videoAd adSkipped];
 }
 
 @end

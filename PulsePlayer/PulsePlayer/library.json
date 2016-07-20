@@ -24,6 +24,12 @@
   "content-duration": 52,
   "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
 },{
+ "tags":             ["pause"],
+ "content-title":    "Pause ad demo",
+ "content-id":       "demo-pause",
+ "content-duration": 52,
+ "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
   "tags":             ["standard-linears"],
   "midroll-positions": [15, 30],
   "content-title":    "Pre-/mid-/postroll demo",

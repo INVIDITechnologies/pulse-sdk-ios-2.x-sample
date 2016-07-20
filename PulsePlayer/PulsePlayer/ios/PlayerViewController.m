@@ -11,6 +11,8 @@
 #import "PlayerViewController.h"
 #import "AVAsset+Preloading.h"
 #import "SkipViewController.h"
+#import "SkinViewController.h"
+#import "PauseAdViewController.h"
 
 typedef enum : NSUInteger {
   PlayerStateIdle = 0,
@@ -23,16 +25,15 @@ typedef enum : NSUInteger {
  An View Controller for playing back video on iOS devices like the iPad and iPhone.
  This supports the new picture-in-picture mode.
 */
-@interface PlayerViewController () <OOPulseSessionDelegate, UIGestureRecognizerDelegate, AVPlayerViewControllerDelegate, SkipViewControllerDelegate> {
-  // Keeps tracks of AVPlayer timePeriod observer
-  id playerPeriodicObserver;
+@interface PlayerViewController () <OOPulseSessionDelegate, SkipViewControllerDelegate, SkinViewControllerDelegate, PauseAdViewControllerDelegate> {
 
   // Used to restore the playback rate when returning from background mode
   float playbackRateBeforeBackground;
 }
 
+@property (strong, nonatomic) PauseAdViewController *pauseAdViewController;
 @property (strong, nonatomic) SkipViewController *skipViewController;
-@property (strong, nonatomic) AVPlayerViewController *playerViewController;
+@property (strong, nonatomic) SkinViewController *skinViewController;
 
 @property (assign, nonatomic) PlayerState state;
 @property (assign, nonatomic) BOOL pictureInPictureActive;
@@ -44,9 +45,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) AVAsset *contentAsset;
 @property (strong, nonatomic) AVAsset *adAsset;
 
-@property (weak, nonatomic)   id<OOPulseVideoAd> ad;
-
-@property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
+@property (weak, nonatomic)   id<OOPulseVideoAd> videoAd;
 
 @end
 
@@ -56,8 +55,10 @@ typedef enum : NSUInteger {
 {
   self = [super init];
   if (self) {
-    _playerViewController = [[AVPlayerViewController alloc] init];
-    _playerViewController.delegate = self;
+    _skinViewController = [[SkinViewController alloc] initWithNibName:@"SkinViewController" bundle:[NSBundle mainBundle]];
+    _skinViewController.delegate = self;
+    _pauseAdViewController = [[PauseAdViewController alloc] initWithNibName:@"PauseAdViewController" bundle:[NSBundle mainBundle]];
+    _pauseAdViewController.delegate = self;
   }
   return self;
 }
@@ -76,14 +77,6 @@ typedef enum : NSUInteger {
 {
   self.player = [[AVPlayer alloc] init];
 
-  // Get a periodic notification while player is playing
-  __weak PlayerViewController *weakSelf = self;
-  playerPeriodicObserver = [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(0.5, NSEC_PER_SEC)
-                                                                     queue:nil
-                                                                usingBlock:^(CMTime time) {
-                                                                  [weakSelf onPlayback:time];
-                                                                }];
-
   // Get notified when a AVPlayerItem finished playback
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(onPlaybackFinished:)
@@ -94,10 +87,14 @@ typedef enum : NSUInteger {
 - (void)initializeView
 {
   // Create a AVPlayerViewController that will be responsible for displaying video
-  self.playerViewController.player = self.player;
-  [self addChildViewController:self.playerViewController];
-  [self.view addSubview:self.playerViewController.view];
-  [self.playerViewController.view setFrame:self.view.frame];
+  self.skinViewController.player = self.player;
+  [self addChildViewController:self.skinViewController];
+  [self.view addSubview:self.skinViewController.view];
+  [self.skinViewController.view setFrame:self.view.frame];
+  
+  [self addChildViewController:self.pauseAdViewController];
+  [self.view addSubview:self.pauseAdViewController.view];
+  [self.pauseAdViewController.view setFrame:self.view.frame];
   
   // Create a skip view controller
   self.skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
@@ -105,18 +102,6 @@ typedef enum : NSUInteger {
   [self addChildViewController:self.skipViewController];
   [self.view addSubview:self.skipViewController.view];
   [self.skipViewController.view setFrame:CGRectInset(self.view.frame, 0, 20)];
-
-  // Create a loading indicator, and add it to our view
-  self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:self.view.frame];
-  self.activityIndicatorView.hidesWhenStopped = YES;
-  self.activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-  [self.view addSubview:self.activityIndicatorView];
-
-  // Add click-through tap recognizer
-  UIGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]
-                                     initWithTarget:self action:@selector(onVideoTapped)];
-  recognizer.delegate = self;
-  [self.view addGestureRecognizer:recognizer];
 }
 
 - (void)observeAppState
@@ -149,7 +134,7 @@ typedef enum : NSUInteger {
 {
   [self.player replaceCurrentItemWithPlayerItem:nil];
   [self.player cancelPendingPrerolls];
-  self.ad = nil;
+  self.videoAd = nil;
   self.adAsset = nil;
   self.contentItem = nil;
   self.contentAsset = [AVAsset assetWithURL:url];
@@ -163,7 +148,6 @@ typedef enum : NSUInteger {
 - (void)dealloc
 {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
-  [self.player removeTimeObserver:playerPeriodicObserver];
 }
 
 #pragma mark - Video playback support
@@ -201,14 +185,14 @@ typedef enum : NSUInteger {
   playbackRateBeforeBackground = self.player.rate;
   if (!self.pictureInPictureActive && [self isAssetPlaying:self.adAsset]) {
     [self.player pause];
-    [self.ad adPaused];
+    [self.videoAd adPaused];
   }
 }
 
 - (void)applicationWillEnterForeground
 {
   if (playbackRateBeforeBackground > 0 && [self isAssetPaused:self.adAsset]) {
-    [self.ad adResumed];
+    [self.videoAd adResumed];
   }
   [self.player setRate:playbackRateBeforeBackground];
 }
@@ -219,7 +203,7 @@ typedef enum : NSUInteger {
   dispatch_async(dispatch_get_main_queue(), ^{
     if ([notification.object asset] == self.adAsset) {
       self.adAsset = nil;
-      [self.ad adFinished];
+      [self.videoAd adFinished];
     }
     else if ([notification.object asset] == self.contentAsset) {
       [self.session contentFinished];
@@ -227,7 +211,7 @@ typedef enum : NSUInteger {
   });
 }
 
-- (void)onPlayback:(CMTime)time
+- (void)playbackPositionChanged:(NSTimeInterval)position
 {
   // Ensure that we are currently playing either the content or an ad.
   // We need to check this because sometimes the periodic time observer callbacks
@@ -237,23 +221,21 @@ typedef enum : NSUInteger {
 
     if (self.state == PlayerStateLoading) {
       if (self.adAsset) {
-        [self.skipViewController updateWithSkippable:[self.ad isSkippable]
-                                          skipOffset:[self.ad skipOffset]
+        [self.skipViewController updateWithSkippable:[self.videoAd isSkippable]
+                                          skipOffset:[self.videoAd skipOffset]
                                           adPosition:0];
-        [self.ad adStarted];
+        [self.videoAd adStarted];
       }
       else
         [self.session contentStarted];
       [self setIsLoading:NO];
     }
     else {
-      NSTimeInterval position = (NSTimeInterval)time.value/time.timescale;
-
       if (self.adAsset) {
-        [self.skipViewController updateWithSkippable:[self.ad isSkippable]
-                                          skipOffset:[self.ad skipOffset]
+        [self.skipViewController updateWithSkippable:[self.videoAd isSkippable]
+                                          skipOffset:[self.videoAd skipOffset]
                                           adPosition:position];
-        [self.ad adPositionChanged:position];
+        [self.videoAd adPositionChanged:position];
       }
       else
         [self.session contentPositionChanged:position];
@@ -270,8 +252,8 @@ typedef enum : NSUInteger {
   [self.player pause];
   [self setIsLoading:YES];
 
-  [self setControlsVisible:YES];
-  [self.playerViewController setAllowsPictureInPicturePlayback:YES];
+  [self.skinViewController showControls];
+  self.skinViewController.requiresLinearPlayback = NO;
   self.adAsset = nil;
   self.skipViewController.view.hidden = YES;
 
@@ -293,8 +275,8 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self.player replaceCurrentItemWithPlayerItem:nil];
-  [self setControlsVisible:NO];
-  [self.playerViewController setAllowsPictureInPicturePlayback:NO];
+  [self.skinViewController hideControls];
+  self.skinViewController.requiresLinearPlayback = YES;
 
   [self setIsLoading:YES];
 }
@@ -312,12 +294,17 @@ typedef enum : NSUInteger {
   [self setIsLoading:YES];
 
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
-    self.ad = ad;
+    self.videoAd = ad;
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
     [ad adFailedWithError:error];
   }];
+}
+
+- (void)showPauseAd:(id<OOPulsePauseAd>)ad
+{
+  self.pauseAdViewController.ad = ad;
 }
 
 - (void)sessionEnded
@@ -348,78 +335,65 @@ typedef enum : NSUInteger {
 
 #pragma mark - UI
 
-- (void)setControlsVisible:(BOOL)visible
-{
-  // This is a hacky way of hiding the controls. In a real app your probably
-  // want to use your own controls anyway.
-  UIView *parent = self.playerViewController.view.subviews[0];
-  for (long i = parent.subviews.count - 1; i > 0; i--) {
-    if ([parent.subviews[i] isMemberOfClass:[UIView class]]) {
-      parent.subviews[i].hidden = !visible;
-      return;
-    }
-  }
-}
-
 - (void)setIsLoading:(BOOL)loading
 {
-  if (loading)
-    [self.activityIndicatorView startAnimating];
-  else
-    [self.activityIndicatorView stopAnimating];
-
-  [self.playerViewController.view setHidden:loading];
+  self.skinViewController.loading = loading;
   self.state = loading ? PlayerStateLoading : PlayerStatePlaying;
 }
 
-- (void)onVideoTapped
+- (void)showClickthroughForAd:(id<OOPulseAd>)ad
+{
+  if ([ad clickthroughURL]) {
+    [ad adClickThroughTriggered];
+    [[UIApplication sharedApplication] openURL:[ad clickthroughURL]];
+  }
+}
+
+#pragma mark - SkinViewControllerDelegate
+
+- (void)userTappedVideo
 {
   // If we have an ad asset and it is playing, then trigger clickthrough
   if ([self isAssetPlaying:self.adAsset]) {
-    if ([self.ad clickthroughURL]) {
-      [self.ad adClickThroughTriggered];
-      [[UIApplication sharedApplication] openURL:[self.ad clickthroughURL]];
+    [self showClickthroughForAd:self.videoAd];
+  } else {
+    [self.skinViewController toggleControls];
+  }
+}
+
+- (void)userPausedVideo
+{
+  if ([self isAssetActive:self.contentAsset]) {
+    if (self.state == PlayerStatePlaying) {
+      NSLog(@"Content paused");
+      [self.session contentPaused];
     }
   }
+}
+
+- (void)userResumedVideo
+{
+  if ([self isAssetActive:self.contentAsset]) {
+    if (self.state == PlayerStatePlaying) {
+      self.pauseAdViewController.ad = nil;
+      NSLog(@"Content resumed");
+      [self.session contentStarted];
+    }
+  }
+}
+
+#pragma mark - PauseAdViewControllerDelegate
+
+- (void)adTapped:(id<OOPulseAd>)ad
+{
+  [self showClickthroughForAd:ad];
 }
 
 #pragma mark - SkipViewControllerDelegate
 
 - (void)skipButtonWasPressed
 {
-  [self.ad adSkipped];
-}
-
-#pragma mark - UIGestureRecognizerDelegate
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-  if ([touch.view isDescendantOfView:self.skipViewController.background]) return NO;
-  return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-  return YES;
-}
-
-#pragma mark - AVPlayerViewControllerDelegate
-
-- (void)playerViewControllerWillStartPictureInPicture:(AVPlayerViewController *)playerViewController
-{
-  self.pictureInPictureActive = YES;
-}
-
-- (void)playerViewController:(AVPlayerViewController *)playerViewController restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL))completionHandler
-{
-  if ([self.delegate respondsToSelector:@selector(playerViewController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:)]) {
-    [self.delegate playerViewController:self restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:completionHandler];
-  }
-}
-
-- (void)playerViewControllerWillStopPictureInPicture:(AVPlayerViewController *)playerViewController
-{
-  self.pictureInPictureActive = NO;
+  [self.videoAd adSkipped];
 }
 
 @end
