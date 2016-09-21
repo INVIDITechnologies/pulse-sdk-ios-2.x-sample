@@ -69,7 +69,8 @@
     
     [self.playerViewController playContentWithURL:videoItem.videoURL
                                   contentMetadata:contentMetadata
-                                  requestSettings:requestSettings];
+                                  requestSettings:requestSettings
+                                  videoItem:videoItem];
   }];
 }
 
@@ -93,8 +94,18 @@
     // Parse and add each video in the JSON array to our video library
     NSMutableArray *videos = [NSMutableArray array];
     for (NSDictionary *jsonObject in self.JSONVideoObjects) {
-      [videos addObject:[VideoItem videoItemWithDictionary:jsonObject]];
+      VideoItem *videoItem = [VideoItem videoItemWithDictionary:jsonObject];
+
+      // Temporary hack to hide pause ad item on tvOS,
+      // as its custom view controller has not yet been implemented
+  #if TARGET_OS_TV
+      if([videoItem.title isEqualToString:@"Pause ad demo"]) {
+        continue;
+      }
+  #endif
+      [videos addObject:videoItem];
     }
+
     _videos = videos;
   }
   return _videos;

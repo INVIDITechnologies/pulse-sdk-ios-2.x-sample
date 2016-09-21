@@ -60,7 +60,14 @@
   "content-id":       "demo-freq-capping",
   "content-duration": 52,
   "content-url":      "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
-},{
+ },{
+ "tags":              ["standard-prerolls"],
+ "content-title":     "Session extension",
+ "content-id":        "demo-preroll",
+ "midroll-positions": [],
+ "content-duration":  52,
+ "content-url":       "http://pulse-demo.cdn.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+ },{
   "tags":             ["preroll-media-invalid"],
   "content-title":    "Preroll demo - Ad media file invalid",
   "content-id":       "demo-preroll-invalid",

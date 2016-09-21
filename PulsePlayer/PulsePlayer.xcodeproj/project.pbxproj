@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91C822431D3FDB3D0092F2D1 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91C822421D3FDB3D0092F2D1 /* Pulse.framework */; };
 		AA609B9D1D1ABA9700A12AE8 /* SkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */; };
 		AA609BA01D1AC3F100A12AE8 /* SkinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */; };
 		C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2411BFB6D3E00C07A18 /* Main.storyboard */; };
@@ -23,7 +22,7 @@
 		C4100D9B1BFB64CF00B3F348 /* VideoLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47485BF1BCD3A080056BD05 /* VideoLibraryViewController.m */; };
 		C4100DA21BFB64CF00B3F348 /* library.json in Resources */ = {isa = PBXBuildFile; fileRef = C47485BC1BCD27BE0056BD05 /* library.json */; };
 		C4100DA41BFB64CF00B3F348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45CDBE61BCBA8DC00653D49 /* Assets.xcassets */; };
-		C4100DAC1BFB652B00B3F348 /* Pulse-tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DAB1BFB652B00B3F348 /* Pulse-tvos.framework */; };
+		C4100DAC1BFB652B00B3F348 /* Pulse-tvos-debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DAB1BFB652B00B3F348 /* Pulse-tvos-debug.framework */; };
 		C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DB01BFB658800B3F348 /* AVFoundation.framework */; };
 		C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4100DB21BFB658D00B3F348 /* AVKit.framework */; };
 		C44D197C1D240B9600FD97B9 /* PauseAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D197A1D240B9600FD97B9 /* PauseAdViewController.m */; };
@@ -40,7 +39,8 @@
 		C45CDBE71BCBA8DC00653D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45CDBE61BCBA8DC00653D49 /* Assets.xcassets */; };
 		C45CDBF51BCBA8DC00653D49 /* PulsePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBF41BCBA8DC00653D49 /* PulsePlayerTests.m */; };
 		C45CDC001BCBA8DC00653D49 /* PulsePlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDBFF1BCBA8DC00653D49 /* PulsePlayerUITests.m */; };
-		C45CDC0F1BCBA8FF00653D49 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC0D1BCBA8FF00653D49 /* Pulse.framework */; };
+		C45CDC0E1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */; };
+		C45CDC0F1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */; };
 		C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45CDC141BCBCE4700653D49 /* AVKit.framework */; };
 		C45CDC181BCBCED900653D49 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDC171BCBCED900653D49 /* PlayerViewController.m */; };
 		C45CDC191BCBCED900653D49 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45CDC171BCBCED900653D49 /* PlayerViewController.m */; };
@@ -74,7 +74,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		91C822421D3FDB3D0092F2D1 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/Pulse.framework; sourceTree = "<group>"; };
 		AA609B9B1D1AB5E600A12AE8 /* SkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinViewController.h; sourceTree = "<group>"; };
 		AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinViewController.m; sourceTree = "<group>"; };
 		AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkinViewController.xib; sourceTree = "<group>"; };
@@ -85,7 +84,7 @@
 		C405B24D1BFE19C500C07A18 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		C4100DA91BFB64CF00B3F348 /* PulsePlayer (TVOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PulsePlayer (TVOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4100DAA1BFB64CF00B3F348 /* Info (TVOS).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info (TVOS).plist"; path = "/Users/jacques/work/videoplaza/plugin_ios_2.x_sample/PulsePlayer/PulsePlayer/tvos/Info (TVOS).plist"; sourceTree = "<absolute>"; };
-		C4100DAB1BFB652B00B3F348 /* Pulse-tvos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pulse-tvos.framework"; path = "../Pulse/Pulse-tvos.framework"; sourceTree = "<group>"; };
+		C4100DAB1BFB652B00B3F348 /* Pulse-tvos-debug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pulse-tvos-debug.framework"; path = "../Pulse/Pulse-tvos-debug.framework"; sourceTree = "<group>"; };
 		C4100DB01BFB658800B3F348 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		C4100DB21BFB658D00B3F348 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/AVKit.framework; sourceTree = DEVELOPER_DIR; };
 		C44D19791D240B9600FD97B9 /* PauseAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseAdViewController.h; sourceTree = "<group>"; };
@@ -110,7 +109,7 @@
 		C45CDBFB1BCBA8DC00653D49 /* PulsePlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsePlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45CDBFF1BCBA8DC00653D49 /* PulsePlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PulsePlayerUITests.m; sourceTree = "<group>"; };
 		C45CDC011BCBA8DC00653D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C45CDC0D1BCBA8FF00653D49 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pulse.framework"; path = "../Pulse/Pulse.framework"; sourceTree = "<group>"; };
+		C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pulse-debug.framework"; path = "../Pulse/Pulse-debug.framework"; sourceTree = "<group>"; };
 		C45CDC141BCBCE4700653D49 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		C45CDC161BCBCED900653D49 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		C45CDC171BCBCED900653D49 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
@@ -136,7 +135,7 @@
 			files = (
 				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
 				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
-				C4100DAC1BFB652B00B3F348 /* Pulse-tvos.framework in Frameworks */,
+				C4100DAC1BFB652B00B3F348 /* Pulse-tvos-debug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91C822431D3FDB3D0092F2D1 /* Pulse.framework in Frameworks */,
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
+				C45CDC0E1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C45CDC0F1BCBA8FF00653D49 /* Pulse.framework in Frameworks */,
+				C45CDC0F1BCBA8FF00653D49 /* Pulse-debug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +202,6 @@
 		C4100DAD1BFB655500B3F348 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				91C822421D3FDB3D0092F2D1 /* Pulse.framework */,
 				C4100DAF1BFB656200B3F348 /* TVOS */,
 				C4100DAE1BFB655D00B3F348 /* iOS */,
 			);
@@ -213,7 +211,7 @@
 		C4100DAE1BFB655D00B3F348 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C45CDC0D1BCBA8FF00653D49 /* Pulse.framework */,
+				C45CDC0D1BCBA8FF00653D49 /* Pulse-debug.framework */,
 				C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */,
 				C45CDC141BCBCE4700653D49 /* AVKit.framework */,
 			);
@@ -223,7 +221,7 @@
 		C4100DAF1BFB656200B3F348 /* TVOS */ = {
 			isa = PBXGroup;
 			children = (
-				C4100DAB1BFB652B00B3F348 /* Pulse-tvos.framework */,
+				C4100DAB1BFB652B00B3F348 /* Pulse-tvos-debug.framework */,
 				C4100DB21BFB658D00B3F348 /* AVKit.framework */,
 				C4100DB01BFB658800B3F348 /* AVFoundation.framework */,
 			);

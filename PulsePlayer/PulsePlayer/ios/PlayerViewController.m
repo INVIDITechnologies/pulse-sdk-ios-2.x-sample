@@ -13,6 +13,7 @@
 #import "SkipViewController.h"
 #import "SkinViewController.h"
 #import "PauseAdViewController.h"
+#import "VideoItemCell.h"
 
 typedef enum : NSUInteger {
   PlayerStateIdle = 0,
@@ -44,6 +45,10 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) AVPlayerItem *contentItem;
 @property (strong, nonatomic) AVAsset *contentAsset;
 @property (strong, nonatomic) AVAsset *adAsset;
+@property (strong, nonatomic) VideoItem *videoItem;
+@property (assign, nonatomic) BOOL isSessionExtensionRequested;
+@property (nonatomic) VPContentMetadata *contentMetadata;
+@property (nonatomic) VPRequestSettings *requestSetting;
 
 @property (weak, nonatomic)   id<OOPulseVideoAd> videoAd;
 
@@ -130,16 +135,22 @@ typedef enum : NSUInteger {
   [super viewWillDisappear:animated];
 }
 
-- (void)playContentWithURL:(NSURL *)url contentMetadata:(VPContentMetadata *)contentMetadata requestSettings:(VPRequestSettings *)requestSettings
+- (void)playContentWithURL:(NSURL *)url contentMetadata:(VPContentMetadata *)contentMetadata requestSettings:(VPRequestSettings *)requestSettings videoItem:(VideoItem *)videoItem
 {
   [self.player replaceCurrentItemWithPlayerItem:nil];
   [self.player cancelPendingPrerolls];
   self.videoAd = nil;
   self.adAsset = nil;
   self.contentItem = nil;
+  self.videoItem = videoItem;
   self.contentAsset = [AVAsset assetWithURL:url];
   [self.contentAsset preload];
-
+  self.isSessionExtensionRequested = NO;
+  self.contentMetadata = [[VPContentMetadata alloc] init];
+  self.contentMetadata = contentMetadata;
+  self.requestSetting = [[VPRequestSettings alloc] init];
+  self.requestSetting = requestSettings;
+  
   [self setIsLoading:YES];
   self.session = [OOPulse sessionWithContentMetadata:contentMetadata requestSettings:requestSettings];
   [self.session startSessionWithDelegate:self];
@@ -238,7 +249,17 @@ typedef enum : NSUInteger {
         [self.videoAd adPositionChanged:position];
       }
       else
+      {
         [self.session contentPositionChanged:position];
+        if ([self.videoItem.title  isEqual: @"Session extension"] && !self.isSessionExtensionRequested)
+        {
+          if (fabs(position - 10) < 0.1)
+          {
+            self.isSessionExtensionRequested = YES;
+           [self requestSessionExtension];
+          }
+        }
+      }
     }
   }
 }
@@ -394,6 +415,19 @@ typedef enum : NSUInteger {
 - (void)skipButtonWasPressed
 {
   [self.videoAd adSkipped];
+}
+
+#pragma mark - Helper methods
+- (void) requestSessionExtension
+{
+  NSLog(@"Request a session extension for two midrolls at 20th second.");
+  self.contentMetadata.tags = @[@"standard-midrolls"];
+  self.requestSetting.linearPlaybackPositions = @[@20];
+  self.requestSetting.insertionPointFilter = VPInsertionPointTypePlaybackPosition;
+
+  [self.session extendSessionWithContentMetadata:self.contentMetadata requestSettings:self.requestSetting success:^{
+    NSLog(@"Session was successfully extended. There are now midroll ads at 20th second.");
+  }];
 }
 
 @end
