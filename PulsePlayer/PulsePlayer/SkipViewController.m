@@ -25,7 +25,11 @@
 {
   [super viewDidLoad];
 
-  [self.skipButton addTarget:self action:@selector(skipButtonWasPressed) forControlEvents:UIControlEventTouchUpInside|UIControlEventPrimaryActionTriggered];
+  UIControlEvents skipButtonEvent = UIControlEventTouchUpInside;
+#if TARGET_OS_TV
+  skipButtonEvent = UIControlEventPrimaryActionTriggered;
+#endif
+  [self.skipButton addTarget:self action:@selector(skipButtonWasPressed) forControlEvents:skipButtonEvent];
   self.skipLabelText = self.skipLabel.text;
   self.view.hidden = YES;
 }
