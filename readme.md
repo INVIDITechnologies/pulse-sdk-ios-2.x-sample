@@ -9,8 +9,8 @@ This is absolutely **not** intended to be used in production or to outline best 
 
 ## Building
 
-1. After cloning the project, download the Ooyala Ad Products iOS SDKs [here](http://support.ooyala.com/resources/mobile-and-client-sdks).
-2. Copy the [required](Pulse/readme.md) framework files into the Pulse folder of the project.
+1. After cloning the project, download the Ooyala Ad Products iOS SDKs [here](http://help.ooyala.com/downloads).
+2. Copy the required framework files into the [iOS](Pulse/iOS/readme.md) and/or [tvOS](Pulse/tvOS/readme.md) Pulse folders of the project.
 3. Open the project file in XCode.
 4. Select the ```PulsePlayer``` scheme  for iOS, or the ```PulsePlayer (TVOS)``` scheme for tvOS.
 5. Build the project.
@@ -22,7 +22,7 @@ The Pulse SDK is initialized in the [app delegate](PulsePlayer/PulsePlayer/AppDe
 
 A [VideoLibraryViewController](PulsePlayer/PulsePlayer/VideoLibraryViewController.m) shows a list of available videos, along with some [metadata](PulsePlayer/PulsePlayer/VideoItem.h). When a video is selected, it is opened in a [PlayerViewController](PulsePlayer/PulsePlayer/PlayerViewController.h) (specialized for  [iOS](PulsePlayer/PulsePlayer/ios/PlayerViewController.m) and [tvOS](PulsePlayer/PulsePlayer/tvos/PlayerViewController.m)).
 
-The PlayerViewController creates a [OOPulseSession](http://pulse-sdks.ooyala.com/ios_2/latest/Protocols/OOPulseSession.html) using the [OOPulse](http://developers.videoplaza.com/ios_2/latest/Classes/OOPulse.html) class. This OOPulseSession informs the PlayerViewController through the [OOPulseSessionDelegate](http://pulse-sdks.ooyala.com/ios_2/latest/Protocols/OOPulseSessionDelegate.html) protocol when it is time to play ads or the content.
+The PlayerViewController creates a [OOPulseSession](http://pulse-sdks.ooyala.com/ios_2/latest/Protocols/OOPulseSession.html) using the [OOPulse](http://pulse-sdks.ooyala.com/ios_2/latest/Classes/OOPulse.html) class. This OOPulseSession informs the PlayerViewController through the [OOPulseSessionDelegate](http://pulse-sdks.ooyala.com/ios_2/latest/Protocols/OOPulseSessionDelegate.html) protocol when it is time to play ads or the content.
 
 A helper category [AVAsset+Preloading](PulsePlayer/PulsePlayer/AVAsset+Preloading.h) is used to preload media files in another thread and reports back if an error occurred.
 
@@ -42,4 +42,4 @@ This account is configured with a set of ad campaigns to help you test your Ooya
 ## Useful information
 
 - [The Ooyala Pulse SDK documentation](http://pulse-sdks.ooyala.com/ios_2/latest/index.html)
-- [Ooyala Ad Products SDK Parameter Reference](http://support.ooyala.com/developers/ad-documentation/oadtech/ad_serving/dg/integration_sdk_parameter.html)
+- [Ooyala Ad Products SDK Parameter Reference](http://help.ooyala.com/video-advertising/oadtech/ad_serving/dg/integration_sdk_parameter.html)
