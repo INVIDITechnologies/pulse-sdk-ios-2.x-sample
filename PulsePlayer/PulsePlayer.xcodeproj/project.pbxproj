@@ -51,8 +51,10 @@
 		C4D8BC391C906822001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC371C906822001D8E45 /* SkipViewController.xib */; };
 		C4D8BC3A1C908A22001D8E45 /* SkipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8BC361C906822001D8E45 /* SkipViewController.m */; };
 		C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */; };
-		CFAB0DB41E2E1CD3002C24D7 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; };
-		CFE187581E2D2A7D0047119E /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; };
+		CF317E3F1E800F84005DEF55 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; };
+		CF317E401E800F84005DEF55 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CF317E421E800F9B005DEF55 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; };
+		CF317E431E800F9B005DEF55 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,31 @@
 			remoteInfo = PulsePlayer;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CF317E411E800F84005DEF55 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CF317E401E800F84005DEF55 /* Pulse.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF317E441E800F9B005DEF55 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CF317E431E800F9B005DEF55 /* Pulse.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AA609B9B1D1AB5E600A12AE8 /* SkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinViewController.h; sourceTree = "<group>"; };
@@ -132,9 +159,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFAB0DB41E2E1CD3002C24D7 /* Pulse.framework in Frameworks */,
 				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
 				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
+				CF317E421E800F9B005DEF55 /* Pulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFE187581E2D2A7D0047119E /* Pulse.framework in Frameworks */,
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
+				CF317E3F1E800F84005DEF55 /* Pulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +364,7 @@
 				C4100D941BFB64CF00B3F348 /* Sources */,
 				C4100D9C1BFB64CF00B3F348 /* Frameworks */,
 				C4100DA01BFB64CF00B3F348 /* Resources */,
+				CF317E441E800F9B005DEF55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +382,7 @@
 				C45CDBD31BCBA8DC00653D49 /* Sources */,
 				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
 				C45CDBD51BCBA8DC00653D49 /* Resources */,
+				CF317E411E800F84005DEF55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
