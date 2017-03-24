@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#if TARGET_OS_IOS
 #import <Pulse/Pulse.h>
+#elif TARGET_OS_TV
+#import <Pulse_tvOS/Pulse.h>
+#endif
 
 @interface AppDelegate ()
 

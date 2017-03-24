@@ -6,7 +6,11 @@
 //  Copyright © 2015 Ooyala. All rights reserved.
 //
 
+#if TARGET_OS_IOS
 #import <Pulse/Pulse.h>
+#elif TARGET_OS_TV
+#import <Pulse_tvOS/Pulse.h>
+#endif
 #import "VideoItem.h"
 
 @class PlayerViewController;

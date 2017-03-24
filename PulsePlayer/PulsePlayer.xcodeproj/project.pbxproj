@@ -53,8 +53,8 @@
 		C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */; };
 		CF317E3F1E800F84005DEF55 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; };
 		CF317E401E800F84005DEF55 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF317E421E800F9B005DEF55 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; };
-		CF317E431E800F9B005DEF55 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CFFEC0911E856D52007A80CA /* Pulse_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFEC0901E856D52007A80CA /* Pulse_tvOS.framework */; };
+		CFFEC0921E856D52007A80CA /* Pulse_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFFEC0901E856D52007A80CA /* Pulse_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,13 +86,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF317E441E800F9B005DEF55 /* Embed Frameworks */ = {
+		CFFEC0931E856D52007A80CA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CF317E431E800F9B005DEF55 /* Pulse.framework in Embed Frameworks */,
+				CFFEC0921E856D52007A80CA /* Pulse_tvOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,8 +150,8 @@
 		C4D8BC361C906822001D8E45 /* SkipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkipViewController.m; sourceTree = "<group>"; };
 		C4D8BC371C906822001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = ../SkipViewController.xib; sourceTree = "<group>"; };
 		C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = PulsePlayer/tvos/SkipViewController.xib; sourceTree = SOURCE_ROOT; };
-		CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/tvOS/Pulse.framework; sourceTree = "<group>"; };
 		CFE187571E2D2A7D0047119E /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/iOS/Pulse.framework; sourceTree = "<group>"; };
+		CFFEC0901E856D52007A80CA /* Pulse_tvOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse_tvOS.framework; path = ../Pulse/tvOS/Pulse_tvOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,9 +159,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFFEC0911E856D52007A80CA /* Pulse_tvOS.framework in Frameworks */,
 				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
 				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
-				CF317E421E800F9B005DEF55 /* Pulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +246,7 @@
 		C4100DAF1BFB656200B3F348 /* TVOS */ = {
 			isa = PBXGroup;
 			children = (
-				CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */,
+				CFFEC0901E856D52007A80CA /* Pulse_tvOS.framework */,
 				C4100DB21BFB658D00B3F348 /* AVKit.framework */,
 				C4100DB01BFB658800B3F348 /* AVFoundation.framework */,
 			);
@@ -364,7 +364,8 @@
 				C4100D941BFB64CF00B3F348 /* Sources */,
 				C4100D9C1BFB64CF00B3F348 /* Frameworks */,
 				C4100DA01BFB64CF00B3F348 /* Resources */,
-				CF317E441E800F9B005DEF55 /* Embed Frameworks */,
+				CFFEC0931E856D52007A80CA /* Embed Frameworks */,
+				CFFEC0941E856D5E007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -383,6 +384,7 @@
 				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
 				C45CDBD51BCBA8DC00653D49 /* Resources */,
 				CF317E411E800F84005DEF55 /* Embed Frameworks */,
+				CFFEC0951E856D75007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -522,6 +524,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CFFEC0941E856D5E007A80CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse_tvOS.framework/strip-frameworks.sh\"";
+		};
+		CFFEC0951E856D75007A80CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C4100D941BFB64CF00B3F348 /* Sources */ = {
