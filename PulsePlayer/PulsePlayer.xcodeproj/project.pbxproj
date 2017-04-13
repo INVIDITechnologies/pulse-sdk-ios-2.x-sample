@@ -51,10 +51,10 @@
 		C4D8BC391C906822001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC371C906822001D8E45 /* SkipViewController.xib */; };
 		C4D8BC3A1C908A22001D8E45 /* SkipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8BC361C906822001D8E45 /* SkipViewController.m */; };
 		C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */; };
-		CF317E3F1E800F84005DEF55 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; };
-		CF317E401E800F84005DEF55 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFE187571E2D2A7D0047119E /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CF317E421E800F9B005DEF55 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; };
-		CF317E431E800F9B005DEF55 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CFD55C6B1E3A596500656D06 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; };
+		CFD55C6C1E3A596500656D06 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CFD55C6E1E3A597200656D06 /* Pulse_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */; };
+		CFD55C6F1E3A597200656D06 /* Pulse_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,24 +75,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CF317E411E800F84005DEF55 /* Embed Frameworks */ = {
+		CF007CFD1E3902E1001E5B2D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CF317E401E800F84005DEF55 /* Pulse.framework in Embed Frameworks */,
+				CFD55C6C1E3A596500656D06 /* Pulse.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF317E441E800F9B005DEF55 /* Embed Frameworks */ = {
+		CF007D011E3902ED001E5B2D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CF317E431E800F9B005DEF55 /* Pulse.framework in Embed Frameworks */,
+				CFD55C6F1E3A597200656D06 /* Pulse_tvOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,8 +150,8 @@
 		C4D8BC361C906822001D8E45 /* SkipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkipViewController.m; sourceTree = "<group>"; };
 		C4D8BC371C906822001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = ../SkipViewController.xib; sourceTree = "<group>"; };
 		C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = PulsePlayer/tvos/SkipViewController.xib; sourceTree = SOURCE_ROOT; };
-		CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/tvOS/Pulse.framework; sourceTree = "<group>"; };
-		CFE187571E2D2A7D0047119E /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/iOS/Pulse.framework; sourceTree = "<group>"; };
+		CFD55C6A1E3A596500656D06 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/Pulse.framework; sourceTree = "<group>"; };
+		CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse_tvOS.framework; path = ../Pulse/Pulse_tvOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,9 +159,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD55C6E1E3A597200656D06 /* Pulse_tvOS.framework in Frameworks */,
 				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
 				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
-				CF317E421E800F9B005DEF55 /* Pulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +171,7 @@
 			files = (
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
-				CF317E3F1E800F84005DEF55 /* Pulse.framework in Frameworks */,
+				CFD55C6B1E3A596500656D06 /* Pulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +236,7 @@
 		C4100DAE1BFB655D00B3F348 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CFE187571E2D2A7D0047119E /* Pulse.framework */,
+				CFD55C6A1E3A596500656D06 /* Pulse.framework */,
 				C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */,
 				C45CDC141BCBCE4700653D49 /* AVKit.framework */,
 			);
@@ -246,7 +246,7 @@
 		C4100DAF1BFB656200B3F348 /* TVOS */ = {
 			isa = PBXGroup;
 			children = (
-				CFAB0DB31E2E1CD3002C24D7 /* Pulse.framework */,
+				CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */,
 				C4100DB21BFB658D00B3F348 /* AVKit.framework */,
 				C4100DB01BFB658800B3F348 /* AVFoundation.framework */,
 			);
@@ -364,7 +364,8 @@
 				C4100D941BFB64CF00B3F348 /* Sources */,
 				C4100D9C1BFB64CF00B3F348 /* Frameworks */,
 				C4100DA01BFB64CF00B3F348 /* Resources */,
-				CF317E441E800F9B005DEF55 /* Embed Frameworks */,
+				CF007D011E3902ED001E5B2D /* Embed Frameworks */,
+				CFFEC0971E857291007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -382,7 +383,8 @@
 				C45CDBD31BCBA8DC00653D49 /* Sources */,
 				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
 				C45CDBD51BCBA8DC00653D49 /* Resources */,
-				CF317E411E800F84005DEF55 /* Embed Frameworks */,
+				CF007CFD1E3902E1001E5B2D /* Embed Frameworks */,
+				CFFEC0961E85728A007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -523,6 +525,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CFFEC0961E85728A007A80CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.framework/strip-frameworks.sh\"";
+		};
+		CFFEC0971E857291007A80CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse_tvOS.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C4100D941BFB64CF00B3F348 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -626,7 +657,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/tvOS;
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/tvos/Info (TVOS).plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
@@ -643,7 +673,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/tvOS;
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/tvos/Info (TVOS).plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
@@ -743,7 +772,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/iOS;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -756,7 +784,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/iOS;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -769,7 +796,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/iOS;
 				INFOPLIST_FILE = PulsePlayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerTests;
@@ -782,7 +808,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/iOS;
 				INFOPLIST_FILE = PulsePlayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerTests;
@@ -794,7 +819,6 @@
 		C45CDC0B1BCBA8DC00653D49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/iOS;
 				INFOPLIST_FILE = PulsePlayerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerUITests;
@@ -807,7 +831,6 @@
 		C45CDC0C1BCBA8DC00653D49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = ../Pulse/iOS;
 				INFOPLIST_FILE = PulsePlayerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerUITests;
