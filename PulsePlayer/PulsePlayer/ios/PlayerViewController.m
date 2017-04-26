@@ -169,10 +169,10 @@ typedef enum : NSUInteger {
   [self.player play];
 }
 
-// Returns YES is asset is the same one as in the current player item.
+// Returns YES if asset is the same one as in the current player item.
 - (BOOL)isAssetActive:(AVAsset *)asset
 {
-  // For the asset to be active it must non-null, and equal to the
+  // For the asset to be active it must be non-null, and equal to the
   // the current player item's asset
   return asset && [self.player.currentItem asset] == asset;
 }
@@ -342,7 +342,7 @@ typedef enum : NSUInteger {
   NSLog(@"Illegal operation occurred: %@", error);;
 
 #if DEBUG
-  // In debug mode we throw on illegal operations in order to find and
+  // In debug mode we throw an illegal operation in order to find and
   // correct mistakes in the integration.
   @throw [NSException exceptionWithName:@"Illegal operation" reason:[error description] userInfo:nil];
 #else

@@ -1,9 +1,9 @@
 //
-//  PlayerViewController.h
+//  CompanionPlayerViewController.h
 //  PulsePlayer
 //
-//  Created by Jacques du Toit on 12/10/15.
-//  Copyright © 2015 Ooyala. All rights reserved.
+//  Created by Joao Sampaio on 10/04/17.
+//  Copyright © 2017 Ooyala. All rights reserved.
 //
 
 #if TARGET_OS_IOS
@@ -12,11 +12,11 @@
 #import <Pulse_tvOS/Pulse.h>
 #endif
 #import "VideoItem.h"
+#import <UIKit/UIKit.h>
 
-@class PlayerViewController;
+@class CompanionPlayerViewController;
 
-/// A View controller for video and ad playback
-@interface PlayerViewController : UIViewController
+@interface CompanionPlayerViewController : UIViewController
 
 /// Play the content along with ads coming from a Pulse session requested with
 /// the given content metadata and request settings.

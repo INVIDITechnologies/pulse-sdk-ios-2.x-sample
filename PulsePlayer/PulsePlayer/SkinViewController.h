@@ -28,6 +28,7 @@
 - (void)toggleControls;
 - (void)showControls;
 - (void)hideControls;
+- (void)disableCloseButton;
 
 @property (weak, nonatomic) IBOutlet UIView *contentOverlayView;
 

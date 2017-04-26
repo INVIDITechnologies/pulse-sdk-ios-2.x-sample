@@ -11,7 +11,8 @@
 @implementation VideoItemCell
 
 - (void)awakeFromNib {
-    // Initialization code
+  // Initialization code
+  [super awakeFromNib];
 }
 
 - (void)setVideoItem:(VideoItem *)videoItem

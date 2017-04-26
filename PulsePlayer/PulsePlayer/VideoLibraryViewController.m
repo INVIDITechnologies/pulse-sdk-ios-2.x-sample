@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #if TARGET_OS_IOS
 #import <Pulse/Pulse.h>
-#elif TARGET_OS_TV
+#else
 #import <Pulse_tvOS/Pulse.h>
 #endif
 
@@ -18,12 +18,14 @@
 #import "VideoItemCell.h"
 
 #import "PlayerViewController.h"
+#import "CompanionPlayerViewController.h"
 
 #define VIDEO_CELL_REUSE_ID @"VideoItemCell"
 
 @interface VideoLibraryViewController ()
 
 @property (strong, nonatomic) PlayerViewController *playerViewController;
+@property (strong, nonatomic) CompanionPlayerViewController *companionPlayerViewController;
 
 // Our video library is just an array of VideoItem objects
 @property (strong, nonatomic) NSArray<VideoItem *> *videos;
@@ -38,6 +40,10 @@
   [self.tableView registerNib:[UINib nibWithNibName:@"VideoItemCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:VIDEO_CELL_REUSE_ID];
 
   self.playerViewController = [[PlayerViewController alloc] init];
+
+#if !TARGET_OS_TV
+  self.companionPlayerViewController = [[CompanionPlayerViewController alloc] init];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,35 +53,51 @@
 
 
 // Start playing the video item at specified index
-- (void)playVideo:(NSInteger)index
+- (void)playVideo:(NSIndexPath*)indexPath//(NSInteger)index
 {
+  NSInteger index = indexPath.row;
   VideoItem *videoItem = self.videos[index];
+
+  // Set the ceontent metadata for the Pulse Ad Session request.
+  VPContentMetadata *contentMetadata = [VPContentMetadata new];
+  contentMetadata.category = videoItem.category;
+  contentMetadata.tags = videoItem.tags;
+  contentMetadata.contentForm = VPContentFormLong;
+  contentMetadata.duration = videoItem.duration;
+  contentMetadata.identifier = videoItem.identifier;
   
-  [self presentViewController:self.playerViewController animated:YES completion:^{
-    
-    // Set the ceontent metadata for the Pulse Ad Session request.
-    VPContentMetadata *contentMetadata = [VPContentMetadata new];
-    contentMetadata.category = videoItem.category;
-    contentMetadata.tags = videoItem.tags;
-    contentMetadata.contentForm = VPContentFormLong;
-    contentMetadata.duration = videoItem.duration;
-    contentMetadata.identifier = videoItem.identifier;
-    
-    // Set the request settings
-    VPRequestSettings *requestSettings = [[VPRequestSettings alloc] init];
-    requestSettings.linearPlaybackPositions = videoItem.midrollPositions;
-    // Here we assume a landscape orientation for video playback
-    requestSettings.width = (NSInteger)MAX(self.view.frame.size.width, self.view.frame.size.height);
-    requestSettings.height = (NSInteger)MIN(self.view.frame.size.width, self.view.frame.size.height);
-    // You should probably implement some way of determining the max
-    // bitrate of ads to request.
-    //requestSettings.maxBitRate = [BandwidthChecker maxBitRate];
-    
-    [self.playerViewController playContentWithURL:videoItem.videoURL
-                                  contentMetadata:contentMetadata
-                                  requestSettings:requestSettings
-                                  videoItem:videoItem];
-  }];
+  // Set the request settings
+  VPRequestSettings *requestSettings = [[VPRequestSettings alloc] init];
+  requestSettings.linearPlaybackPositions = videoItem.midrollPositions;
+  // Here we assume a landscape orientation for video playback
+  requestSettings.width = (NSInteger)MAX(self.view.frame.size.width, self.view.frame.size.height);
+  requestSettings.height = (NSInteger)MIN(self.view.frame.size.width, self.view.frame.size.height);
+  // You should probably implement some way of determining the max
+  // bitrate of ads to request.
+  //requestSettings.maxBitRate = [BandwidthChecker maxBitRate];
+
+  if ([videoItem.identifier isEqualToString:@"demo-companion"]) {
+#if !TARGET_OS_TV
+    // for this sample app, we are only displaying companion banners on portrait orientation
+    if (!UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {
+      [self presentViewController:self.companionPlayerViewController animated:YES completion:^{
+        [self.companionPlayerViewController playContentWithURL:videoItem.videoURL
+                                               contentMetadata:contentMetadata
+                                               requestSettings:requestSettings
+                                                     videoItem:videoItem];
+      }];
+    } else {
+      [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+#endif
+  } else {
+    [self presentViewController:self.playerViewController animated:YES completion:^{
+      [self.playerViewController playContentWithURL:videoItem.videoURL
+                                    contentMetadata:contentMetadata
+                                    requestSettings:requestSettings
+                                          videoItem:videoItem];
+    }];
+  }
 }
 
 #pragma mark - Video libray
@@ -100,10 +122,13 @@
     for (NSDictionary *jsonObject in self.JSONVideoObjects) {
       VideoItem *videoItem = [VideoItem videoItemWithDictionary:jsonObject];
 
-      // Temporary hack to hide pause ad item on tvOS,
+      // Temporary hack to hide pause ad item and Companion ads on tvOS,
       // as its custom view controller has not yet been implemented
   #if TARGET_OS_TV
       if([videoItem.title isEqualToString:@"Pause ad demo"]) {
+        continue;
+      }
+      if ([videoItem.identifier isEqualToString:@"demo-companion"]) {
         continue;
       }
   #endif
@@ -145,7 +170,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [self playVideo:indexPath.row];
+  [self playVideo:indexPath];
 }
 
 

@@ -25,6 +25,7 @@
 @property (nonatomic, assign) BOOL isPlaying;
 
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+@property (weak, nonatomic) IBOutlet UIView *closeButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
@@ -191,6 +192,11 @@
   } else {
     [self hideControls];
   }
+}
+
+- (void)disableCloseButton
+{
+  [self.closeButtonView setHidden:YES];
 }
 
 #pragma mark - Playback

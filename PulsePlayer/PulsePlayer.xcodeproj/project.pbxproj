@@ -51,8 +51,12 @@
 		C4D8BC391C906822001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC371C906822001D8E45 /* SkipViewController.xib */; };
 		C4D8BC3A1C908A22001D8E45 /* SkipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D8BC361C906822001D8E45 /* SkipViewController.m */; };
 		C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */; };
-		CFD55C6B1E3A596500656D06 /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; };
-		CFD55C6C1E3A596500656D06 /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CF070B701E9F92970043348C /* CompanionAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF070B6F1E9F92970043348C /* CompanionAdViewController.m */; };
+		CF070B721E9FA2D40043348C /* CompanionAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF070B711E9FA2D40043348C /* CompanionAdViewController.xib */; };
+		CF80F5861EAE4E5C0024EA7D /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; };
+		CF80F5871EAE4E5C0024EA7D /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CFD386E71E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */; };
+		CFD386E81E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */; };
 		CFD55C6E1E3A597200656D06 /* Pulse_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */; };
 		CFD55C6F1E3A597200656D06 /* Pulse_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -75,17 +79,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CF007CFD1E3902E1001E5B2D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CFD55C6C1E3A596500656D06 /* Pulse.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CF007D011E3902ED001E5B2D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,6 +86,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CFD55C6F1E3A597200656D06 /* Pulse_tvOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF070B6D1E9F6F030043348C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CF80F5871EAE4E5C0024EA7D /* Pulse.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +154,11 @@
 		C4D8BC361C906822001D8E45 /* SkipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkipViewController.m; sourceTree = "<group>"; };
 		C4D8BC371C906822001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = ../SkipViewController.xib; sourceTree = "<group>"; };
 		C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SkipViewController.xib; path = PulsePlayer/tvos/SkipViewController.xib; sourceTree = SOURCE_ROOT; };
+		CF070B6E1E9F92970043348C /* CompanionAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanionAdViewController.h; sourceTree = "<group>"; };
+		CF070B6F1E9F92970043348C /* CompanionAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanionAdViewController.m; sourceTree = "<group>"; };
+		CF070B711E9FA2D40043348C /* CompanionAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanionAdViewController.xib; sourceTree = "<group>"; };
+		CFD386E51E9BE1F700316CD9 /* CompanionPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanionPlayerViewController.h; sourceTree = "<group>"; };
+		CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanionPlayerViewController.m; sourceTree = "<group>"; };
 		CFD55C6A1E3A596500656D06 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/Pulse.framework; sourceTree = "<group>"; };
 		CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse_tvOS.framework; path = ../Pulse/Pulse_tvOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,7 +180,7 @@
 			files = (
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
-				CFD55C6B1E3A596500656D06 /* Pulse.framework in Frameworks */,
+				CF80F5861EAE4E5C0024EA7D /* Pulse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +206,8 @@
 			children = (
 				C45CDBEB1BCBA8DC00653D49 /* Info.plist */,
 				C45CDC171BCBCED900653D49 /* PlayerViewController.m */,
+				CFD386E51E9BE1F700316CD9 /* CompanionPlayerViewController.h */,
+				CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */,
 				C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */,
 				C405B2441BFB6E2400C07A18 /* Main.storyboard */,
 				C47485C51BCD3B050056BD05 /* VideoItemCell.xib */,
@@ -208,6 +219,9 @@
 				C44D19791D240B9600FD97B9 /* PauseAdViewController.h */,
 				C44D197A1D240B9600FD97B9 /* PauseAdViewController.m */,
 				C44D197B1D240B9600FD97B9 /* PauseAdViewController.xib */,
+				CF070B6E1E9F92970043348C /* CompanionAdViewController.h */,
+				CF070B6F1E9F92970043348C /* CompanionAdViewController.m */,
+				CF070B711E9FA2D40043348C /* CompanionAdViewController.xib */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -383,8 +397,8 @@
 				C45CDBD31BCBA8DC00653D49 /* Sources */,
 				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
 				C45CDBD51BCBA8DC00653D49 /* Resources */,
-				CF007CFD1E3902E1001E5B2D /* Embed Frameworks */,
 				CFFEC0961E85728A007A80CA /* ShellScript */,
+				CF070B6D1E9F6F030043348C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -505,6 +519,7 @@
 				C44D197D1D240B9600FD97B9 /* PauseAdViewController.xib in Resources */,
 				C47485C71BCD3B050056BD05 /* VideoItemCell.xib in Resources */,
 				C45CDBE71BCBA8DC00653D49 /* Assets.xcassets in Resources */,
+				CF070B721E9FA2D40043348C /* CompanionAdViewController.xib in Resources */,
 				C4D8BC391C906822001D8E45 /* SkipViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,7 +552,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.framework/strip-frameworks.sh\"";
+			shellScript = "# bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.framework/strip-frameworks.sh\"";
 		};
 		CFFEC0971E857291007A80CA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -578,6 +593,7 @@
 			files = (
 				C44D197C1D240B9600FD97B9 /* PauseAdViewController.m in Sources */,
 				C44E41171BD77C0000B722CB /* AVAsset+Preloading.m in Sources */,
+				CFD386E71E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */,
 				AA609B9D1D1ABA9700A12AE8 /* SkinViewController.m in Sources */,
 				C47485C61BCD3B050056BD05 /* VideoItemCell.m in Sources */,
 				C4527C6B1D22B863005C695F /* PassView.m in Sources */,
@@ -587,6 +603,7 @@
 				C4527C6F1D22C5FC005C695F /* PauseAdView.m in Sources */,
 				C4D8BC381C906822001D8E45 /* SkipViewController.m in Sources */,
 				C45CDBDC1BCBA8DC00653D49 /* main.m in Sources */,
+				CF070B701E9F92970043348C /* CompanionAdViewController.m in Sources */,
 				C47485C01BCD3A080056BD05 /* VideoLibraryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C45CDBF51BCBA8DC00653D49 /* PulsePlayerTests.m in Sources */,
+				CFD386E81E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */,
 				C45CDC191BCBCED900653D49 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
