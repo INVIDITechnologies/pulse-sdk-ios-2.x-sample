@@ -397,8 +397,8 @@
 				C45CDBD31BCBA8DC00653D49 /* Sources */,
 				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
 				C45CDBD51BCBA8DC00653D49 /* Resources */,
-				CFFEC0961E85728A007A80CA /* ShellScript */,
 				CF070B6D1E9F6F030043348C /* Embed Frameworks */,
+				CFFEC0961E85728A007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
