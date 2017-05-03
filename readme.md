@@ -9,8 +9,8 @@ This is absolutely **not** intended to be used in production or to outline best 
 
 ## Building
 
-1. After cloning the project, download the Ooyala Ad Products iOS SDKs [here](http://help.ooyala.com/downloads).
-2. Copy the required framework files into the [iOS](Pulse/iOS/readme.md) and/or [tvOS](Pulse/tvOS/readme.md) Pulse folders of the project.
+1. After cloning the project, download the Ooyala Ad Products iOS SDKs [here](http://support.ooyala.com/resources/mobile-and-client-sdks).
+2. Copy the [required](Pulse/readme.md) framework files into the Pulse folder of the project.
 3. Open the project file in XCode.
 4. Select the ```PulsePlayer``` scheme  for iOS, or the ```PulsePlayer (TVOS)``` scheme for tvOS.
 5. Build the project.
