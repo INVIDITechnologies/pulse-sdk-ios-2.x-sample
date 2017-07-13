@@ -20,6 +20,6 @@
 
 /// Play the content along with ads coming from a Pulse session requested with
 /// the given content metadata and request settings.
-- (void)playContentWithURL:(NSURL *)url contentMetadata:(VPContentMetadata *)metadata requestSettings:(VPRequestSettings *)requestSettings videoItem:(VideoItem *)videoItem;
+- (void)playContentWithURL:(NSURL *)url contentMetadata:(OOContentMetadata *)metadata requestSettings:(OORequestSettings *)requestSettings videoItem:(VideoItem *)videoItem;
 
 @end

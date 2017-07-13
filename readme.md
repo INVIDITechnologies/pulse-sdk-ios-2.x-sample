@@ -42,4 +42,3 @@ This account is configured with a set of ad campaigns to help you test your Ooya
 ## Useful information
 
 - [The Ooyala Pulse SDK documentation](http://pulse-sdks.ooyala.com/ios_2/latest/index.html)
-- [Ooyala Ad Products SDK Parameter Reference](http://help.ooyala.com/video-advertising/oadtech/ad_serving/dg/integration_sdk_parameter.html)

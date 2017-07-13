@@ -59,15 +59,15 @@
   VideoItem *videoItem = self.videos[index];
 
   // Set the ceontent metadata for the Pulse Ad Session request.
-  VPContentMetadata *contentMetadata = [VPContentMetadata new];
+  OOContentMetadata *contentMetadata = [OOContentMetadata new];
   contentMetadata.category = videoItem.category;
   contentMetadata.tags = videoItem.tags;
-  contentMetadata.contentForm = VPContentFormLong;
+  contentMetadata.contentForm = OOContentFormLong;
   contentMetadata.duration = videoItem.duration;
   contentMetadata.identifier = videoItem.identifier;
   
   // Set the request settings
-  VPRequestSettings *requestSettings = [[VPRequestSettings alloc] init];
+  OORequestSettings *requestSettings = [[OORequestSettings alloc] init];
   requestSettings.linearPlaybackPositions = videoItem.midrollPositions;
   // Here we assume a landscape orientation for video playback
   requestSettings.width = (NSInteger)MAX(self.view.frame.size.width, self.view.frame.size.height);
