@@ -43,6 +43,9 @@
   //     http://support.ooyala.com/developers/ad-documentation/oadtech/ad_serving/dg/integration_sdk_parameter.html
   [OOPulse setPulseHost:@"https://pulse-demo.videoplaza.tv" deviceContainer:nil persistentId:[[NSUUID UUID] UUIDString]];
 
+  // Enable the display of logging messages on the console
+  [OOPulse logDebugMessages:YES];
+  
   // Set audio session category:
   //   Playback only. Plays audio even with the screen locked and with the
   //   Ring/Silent switch set to silent. Use this category for an app whose audio

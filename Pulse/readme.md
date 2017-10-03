@@ -1,4 +1,4 @@
-Copy the following Pulse framework files (Debug or Release versions) to this folder:
+Copy the following Ooyala Video Advertising iOS SDK files to this folder:
 
 - Pulse.framework
 - Pulse_tvOS.framework

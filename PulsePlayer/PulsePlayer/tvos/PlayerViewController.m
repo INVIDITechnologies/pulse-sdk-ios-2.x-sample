@@ -43,8 +43,8 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) id<OOPulseVideoAd> videoAd;
 @property (strong, nonatomic) VideoItem *videoItem;
 @property (assign, nonatomic) BOOL isSessionExtensionRequested;
-@property (nonatomic) VPContentMetadata *contentMetadata;
-@property (nonatomic) VPRequestSettings *requestSettings;
+@property (nonatomic) OOContentMetadata *contentMetadata;
+@property (nonatomic) OORequestSettings *requestSettings;
 
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicatorView;
@@ -138,7 +138,7 @@ typedef enum : NSUInteger {
   [super viewWillDisappear:animated];
 }
 
-- (void)playContentWithURL:(NSURL *)url contentMetadata:(VPContentMetadata *)contentMetadata requestSettings:(VPRequestSettings *)requestSettings videoItem:(VideoItem *)videoItem
+- (void)playContentWithURL:(NSURL *)url contentMetadata:(OOContentMetadata *)contentMetadata requestSettings:(OORequestSettings *)requestSettings videoItem:(VideoItem *)videoItem
 {
   [self.player replaceCurrentItemWithPlayerItem:nil];
   [self.player cancelPendingPrerolls];
@@ -149,9 +149,9 @@ typedef enum : NSUInteger {
   self.contentAsset = [AVAsset assetWithURL:url];
   [self.contentAsset preload];
   self.isSessionExtensionRequested = NO;
-  self.contentMetadata = [[VPContentMetadata alloc] init];
+  self.contentMetadata = [[OOContentMetadata alloc] init];
   self.contentMetadata = contentMetadata;
-  self.requestSettings = [[VPRequestSettings alloc] init];
+  self.requestSettings = [[OORequestSettings alloc] init];
   self.requestSettings = requestSettings;
 
 
@@ -387,7 +387,7 @@ typedef enum : NSUInteger {
   NSLog(@"Request a session extension for two midrolls at 20th second.");
   self.contentMetadata.tags = @[@"standard-midrolls"];
   self.requestSettings.linearPlaybackPositions = @[@20];
-  self.requestSettings.insertionPointFilter = VPInsertionPointTypePlaybackPosition;
+  self.requestSettings.insertionPointFilter = OOInsertionPointTypePlaybackPosition;
   
   [self.session extendSessionWithContentMetadata:self.contentMetadata requestSettings:self.requestSettings success:^{
     NSLog(@"Session was successfully extended. There are now midroll ads at 20th second.");
