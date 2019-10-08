@@ -9,7 +9,7 @@ This is absolutely **not** intended to be used in production or to outline best 
 
 ## Building
 
-1. After cloning the project, download the iOS SDK [here](https://service.videoplaza.tv/proxy/ios-sdk/2/latest).
+1. After cloning the project, download the iOS SDK [here](https://service.videoplaza.tv/proxy/ios-sdk/2/latest) and tvOS SDK [here](https://service.videoplaza.tv/proxy/tvos-sdk/2/latest).
 2. Copy the [required](Pulse/readme.md) framework files into the Pulse folder of the project.
 3. Open the project file in XCode.
 4. Select the ```PulsePlayer``` scheme  for iOS, or the ```PulsePlayer (TVOS)``` scheme for tvOS.
