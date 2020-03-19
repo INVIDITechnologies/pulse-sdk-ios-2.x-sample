@@ -316,8 +316,8 @@ typedef enum : NSUInteger {
 
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
-      OmidAdSession * omidAdSession = [OmidAdSession new];
-      [omidAdSession createOmidAdSession:self.parentViewController];
+      OmidAdSession * omidAdSession = [OmidAdSession getInstance];
+      [omidAdSession createOmidAdSession:self.view];
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
