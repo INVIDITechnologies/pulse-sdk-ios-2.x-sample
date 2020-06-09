@@ -313,10 +313,9 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self setIsLoading:YES];
-  OmidAdSession * omidAdSession = [OmidAdSession getInstance];
-  [omidAdSession createOmidAdSessionWithAdView:self.view pulseVideoAd:ad];
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
+    [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad];
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
