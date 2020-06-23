@@ -5,7 +5,7 @@
   "content-duration":  52,
   "content-url":       "http://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
 },{
-  "tags":             ["om_vast4.1_wrapper","om_vast3.0"],
+    "tags":             ["om_vast4.1_wrapper","om_vast3.0"],
   "midroll-positions": [10, 20],
   "content-title":    "OMSDK",
   "content-duration": 52,
