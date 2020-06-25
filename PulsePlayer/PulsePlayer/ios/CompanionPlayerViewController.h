@@ -6,13 +6,13 @@
 //  Copyright © 2017 Ooyala. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #if TARGET_OS_IOS
 #import <Pulse/Pulse.h>
 #else
 #import <Pulse_tvOS/Pulse.h>
 #endif
 #import "VideoItem.h"
-#import <UIKit/UIKit.h>
 
 @class CompanionPlayerViewController;
 
