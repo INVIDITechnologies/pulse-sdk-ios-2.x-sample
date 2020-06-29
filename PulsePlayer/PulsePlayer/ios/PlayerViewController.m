@@ -235,7 +235,7 @@ typedef enum : NSUInteger {
         [self.skipViewController updateWithSkippable:[self.videoAd isSkippable]
                                           skipOffset:[self.videoAd skipOffset]
                                           adPosition:0];
-        [self.videoAd adStarted];
+       [self.videoAd adStarted:0.5f];
       }
       else
         [self.session contentStarted];
@@ -313,7 +313,7 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self setIsLoading:YES];
-
+  [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
