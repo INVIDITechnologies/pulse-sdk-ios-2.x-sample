@@ -323,6 +323,11 @@ typedef enum : NSUInteger {
   }];
 }
 
+- (void)preloadNextAdWithAd:(id<OOPulseVideoAd>)ad
+{
+    NSLog(@"****************** Preload Next Ad now *************************");
+}
+
 - (void)showPauseAd:(id<OOPulsePauseAd>)ad
 {
   self.pauseAdViewController.ad = ad;
