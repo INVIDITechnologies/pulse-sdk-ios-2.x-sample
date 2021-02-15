@@ -296,7 +296,7 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self.player replaceCurrentItemWithPlayerItem:nil];
-  [self.skinViewController hideControls];
+  [self.skinViewController showControls];
   self.skinViewController.requiresLinearPlayback = YES;
 
   [self setIsLoading:YES];
@@ -316,6 +316,7 @@ typedef enum : NSUInteger {
   [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
+    [self.skinViewController showControls];
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
