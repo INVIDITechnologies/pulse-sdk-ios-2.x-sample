@@ -58,7 +58,7 @@
   NSInteger index = indexPath.row;
   VideoItem *videoItem = self.videos[index];
 
-  // Set the ceontent metadata for the Pulse Ad Session request.
+  // Set the content metadata for the Pulse Ad Session request.
   OOContentMetadata *contentMetadata = [OOContentMetadata new];
   contentMetadata.category = videoItem.category;
   contentMetadata.tags = videoItem.tags;
