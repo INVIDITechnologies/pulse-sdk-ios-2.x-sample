@@ -10,6 +10,8 @@
 
 #define ICON_PLAY  @"h"
 #define ICON_PAUSE @"g"
+#define ICON_FULLSCREEN @"i"
+#define ICON_EXIT_FULLSCREEN @"j"
 
 #import <AVFoundation/AVFoundation.h>
 #import "SkinViewController.h"
