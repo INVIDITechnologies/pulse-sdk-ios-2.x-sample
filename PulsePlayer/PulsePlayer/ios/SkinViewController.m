@@ -15,6 +15,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "SkinViewController.h"
+#import <Pulse/OOPlayerState.h>
 
 @interface SkinViewController() {
   // Keeps tracks of AVPlayer timePeriod observer
@@ -228,8 +229,10 @@
         [[UIDevice currentDevice] setValue:
          [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeRight]
                                     forKey:@"orientation"];
-    } 
-  [self.fullscreenButton setTitle:ICON_EXIT_FULLSCREEN forState:UIControlStateNormal];
+    }
+    if ([self.delegate respondsToSelector:@selector(playerStateChanged:)])
+    [self.delegate playerStateChanged:OOPlayerStateFULLSCREEN];
+    [self.fullscreenButton setTitle:ICON_EXIT_FULLSCREEN forState:UIControlStateNormal];
 }
 
 - (void)exitFullscreen
@@ -240,7 +243,9 @@
          [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                     forKey:@"orientation"];
     }
-  [self.fullscreenButton setTitle:ICON_FULLSCREEN forState:UIControlStateNormal];
+    if ([self.delegate respondsToSelector:@selector(playerStateChanged:)])
+    [self.delegate playerStateChanged:OOPlayerStateNORMAL];
+    [self.fullscreenButton setTitle:ICON_FULLSCREEN forState:UIControlStateNormal];
 }
 
 #pragma mark - Events
