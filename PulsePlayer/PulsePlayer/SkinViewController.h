@@ -29,6 +29,7 @@
 
 - (void)toggleControls;
 - (void)showControls;
+- (void)unscheduleHideControls;
 - (void)hideControls;
 - (void)disableCloseButton;
 
