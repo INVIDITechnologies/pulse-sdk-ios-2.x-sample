@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVKit/AVKit.h>
+#import <Pulse/OOPlayerState.h>
 
 @protocol SkinViewControllerDelegate <NSObject>
 
@@ -15,6 +16,7 @@
 - (void)userTappedVideo;
 - (void)userPausedVideo;
 - (void)userResumedVideo;
+- (void)playerStateChanged:(OOPlayerState)playerState;
 
 @end
 
@@ -27,6 +29,7 @@
 
 - (void)toggleControls;
 - (void)showControls;
+- (void)unscheduleHideControls;
 - (void)hideControls;
 - (void)disableCloseButton;
 

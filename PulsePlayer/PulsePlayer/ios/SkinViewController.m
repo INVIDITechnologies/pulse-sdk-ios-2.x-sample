@@ -10,9 +10,12 @@
 
 #define ICON_PLAY  @"h"
 #define ICON_PAUSE @"g"
+#define ICON_FULLSCREEN @"i"
+#define ICON_EXIT_FULLSCREEN @"j"
 
 #import <AVFoundation/AVFoundation.h>
 #import "SkinViewController.h"
+#import <Pulse/OOPlayerState.h>
 
 @interface SkinViewController() {
   // Keeps tracks of AVPlayer timePeriod observer
@@ -23,12 +26,13 @@
 
 @property (strong, nonatomic) AVPlayerLayer *playerLayer;
 @property (nonatomic, assign) BOOL isPlaying;
+@property (nonatomic, assign) BOOL isFullscreen;
 
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 @property (weak, nonatomic) IBOutlet UIView *closeButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
-
+@property (weak, nonatomic) IBOutlet UIButton *fullscreenButton;
 @property (weak, nonatomic) IBOutlet UIView *controlsContainerView;
 @property (weak, nonatomic) IBOutlet UISlider *positionSlider;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicatorView;
@@ -36,7 +40,7 @@
 - (IBAction)playPauseButtonPressed;
 - (IBAction)closeButtonPressed;
 - (IBAction)videoPressed;
-
+- (IBAction)fullscreenButtonPressed;
 
 @end
 
@@ -52,8 +56,9 @@
   
   NSLog(@"SkinViewController: init playerLayer");
   self.requiresLinearPlayback = NO;
-  
   self.playPauseButton.titleLabel.text = ICON_PLAY;
+  self.fullscreenButton.titleLabel.text = ICON_FULLSCREEN;
+  self.isFullscreen = false;
   self.positionSlider.continuous = YES;
   [self.positionSlider addTarget:self action:@selector(onSliderEvent:withEvent:)
                 forControlEvents: UIControlEventValueChanged | UIControlEventTouchCancel];
@@ -217,6 +222,32 @@
   [self scheduleHideControls];
 }
 
+- (void)enterFullscreen
+{
+  self.isFullscreen = true;
+    if (UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation])) {
+        [[UIDevice currentDevice] setValue:
+         [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeRight]
+                                    forKey:@"orientation"];
+    }
+    if ([self.delegate respondsToSelector:@selector(playerStateChanged:)])
+    [self.delegate playerStateChanged:OOPlayerStateFULLSCREEN];
+    [self.fullscreenButton setTitle:ICON_EXIT_FULLSCREEN forState:UIControlStateNormal];
+}
+
+- (void)exitFullscreen
+{
+  self.isFullscreen = false;
+    if (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {
+        [[UIDevice currentDevice] setValue:
+         [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+                                    forKey:@"orientation"];
+    }
+    if ([self.delegate respondsToSelector:@selector(playerStateChanged:)])
+    [self.delegate playerStateChanged:OOPlayerStateNORMAL];
+    [self.fullscreenButton setTitle:ICON_FULLSCREEN forState:UIControlStateNormal];
+}
+
 #pragma mark - Events
 
 - (void)onSliderEvent:(UISlider*)slider withEvent:(UIEvent *)e
@@ -273,6 +304,14 @@
 
 - (IBAction)closeButtonPressed {
   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)fullscreenButtonPressed {
+    if (self.isFullscreen) {
+        [self exitFullscreen];
+    } else {
+        [self enterFullscreen];
+    }
 }
 
 - (IBAction)videoPressed {
