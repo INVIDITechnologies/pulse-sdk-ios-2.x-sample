@@ -3,12 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AA609B9D1D1ABA9700A12AE8 /* SkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */; };
 		AA609BA01D1AC3F100A12AE8 /* SkinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */; };
+		AB23F96825F7C8C900DE9B55 /* Pulse.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */; };
+		AB23F96925F7C8C900DE9B55 /* Pulse.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB23F96A25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; };
+		AB23F96B25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB23F96F25F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */; };
+		AB23F97025F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2411BFB6D3E00C07A18 /* Main.storyboard */; };
 		C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */; };
 		C405B2471BFB6E2400C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2441BFB6E2400C07A18 /* Main.storyboard */; };
@@ -53,12 +59,8 @@
 		C4D8BC3D1C908ADC001D8E45 /* SkipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4D8BC3C1C908ADC001D8E45 /* SkipViewController.xib */; };
 		CF070B701E9F92970043348C /* CompanionAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF070B6F1E9F92970043348C /* CompanionAdViewController.m */; };
 		CF070B721E9FA2D40043348C /* CompanionAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF070B711E9FA2D40043348C /* CompanionAdViewController.xib */; };
-		CF80F5861EAE4E5C0024EA7D /* Pulse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; };
-		CF80F5871EAE4E5C0024EA7D /* Pulse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CFD386E71E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */; };
 		CFD386E81E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */; };
-		CFD55C6E1E3A597200656D06 /* Pulse_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */; };
-		CFD55C6F1E3A597200656D06 /* Pulse_tvOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +87,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CFD55C6F1E3A597200656D06 /* Pulse_tvOS.framework in Embed Frameworks */,
+				AB23F97025F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +98,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CF80F5871EAE4E5C0024EA7D /* Pulse.framework in Embed Frameworks */,
+				AB23F96925F7C8C900DE9B55 /* Pulse.xcframework in Embed Frameworks */,
+				AB23F96B25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +110,9 @@
 		AA609B9B1D1AB5E600A12AE8 /* SkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinViewController.h; sourceTree = "<group>"; };
 		AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinViewController.m; sourceTree = "<group>"; };
 		AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkinViewController.xib; sourceTree = "<group>"; };
+		AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Pulse.xcframework; path = ../Pulse/Pulse.xcframework; sourceTree = "<group>"; };
+		AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OMSDK_Invidi.xcframework; path = ../Pulse/OMSDK_Invidi.xcframework; sourceTree = "<group>"; };
+		AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Pulse_tvOS.xcframework; path = ../Pulse/Pulse_tvOS.xcframework; sourceTree = "<group>"; };
 		C405B2401BFB6D3E00C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C405B2431BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C405B2451BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -168,8 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFD55C6E1E3A597200656D06 /* Pulse_tvOS.framework in Frameworks */,
 				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
+				AB23F96F25F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Frameworks */,
 				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,8 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
+				AB23F96825F7C8C900DE9B55 /* Pulse.xcframework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
-				CF80F5861EAE4E5C0024EA7D /* Pulse.framework in Frameworks */,
+				AB23F96A25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +248,9 @@
 		C4100DAD1BFB655500B3F348 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */,
+				AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */,
+				AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */,
 				C4100DAF1BFB656200B3F348 /* TVOS */,
 				C4100DAE1BFB655D00B3F348 /* iOS */,
 			);
@@ -379,7 +389,6 @@
 				C4100D9C1BFB64CF00B3F348 /* Frameworks */,
 				C4100DA01BFB64CF00B3F348 /* Resources */,
 				CF007D011E3902ED001E5B2D /* Embed Frameworks */,
-				CFFEC0971E857291007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -555,19 +564,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.framework/strip-frameworks.sh\"";
 		};
-		CFFEC0971E857291007A80CA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse_tvOS.framework/strip-frameworks.sh\"";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -677,7 +673,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/tvos/Info (TVOS).plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -693,7 +692,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/tvos/Info (TVOS).plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -793,7 +795,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -805,7 +810,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/PulsePlayer/ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -816,7 +824,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PulsePlayerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulsePlayer.app/PulsePlayer";
@@ -828,7 +840,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PulsePlayerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulsePlayer.app/PulsePlayer";
@@ -839,7 +855,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = PulsePlayerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = PulsePlayer;
@@ -851,7 +871,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = PulsePlayerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ooyala.PulsePlayerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = PulsePlayer;
