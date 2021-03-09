@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		AA609B9D1D1ABA9700A12AE8 /* SkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */; };
 		AA609BA01D1AC3F100A12AE8 /* SkinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */; };
-		AB23F96825F7C8C900DE9B55 /* Pulse.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */; };
-		AB23F96925F7C8C900DE9B55 /* Pulse.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB23F96A25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; };
-		AB23F96B25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB23F96F25F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */; };
-		AB23F97025F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB23F99325F7D26000DE9B55 /* Pulse.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.xcframework */; };
+		AB23F99425F7D26000DE9B55 /* Pulse.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB23F99825F7D26900DE9B55 /* Pulse_tvOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */; };
+		AB23F99925F7D26900DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB23F99E25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; };
+		AB23F99F25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2411BFB6D3E00C07A18 /* Main.storyboard */; };
 		C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */; };
 		C405B2471BFB6E2400C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2441BFB6E2400C07A18 /* Main.storyboard */; };
@@ -81,25 +81,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AB23F99525F7D26000DE9B55 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB23F99425F7D26000DE9B55 /* Pulse.xcframework in Embed Frameworks */,
+				AB23F99F25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF007D011E3902ED001E5B2D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AB23F97025F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF070B6D1E9F6F030043348C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AB23F96925F7C8C900DE9B55 /* Pulse.xcframework in Embed Frameworks */,
-				AB23F96B25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */,
+				AB23F99925F7D26900DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,9 +110,7 @@
 		AA609B9B1D1AB5E600A12AE8 /* SkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinViewController.h; sourceTree = "<group>"; };
 		AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinViewController.m; sourceTree = "<group>"; };
 		AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkinViewController.xib; sourceTree = "<group>"; };
-		AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Pulse.xcframework; path = ../Pulse/Pulse.xcframework; sourceTree = "<group>"; };
 		AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OMSDK_Invidi.xcframework; path = ../Pulse/OMSDK_Invidi.xcframework; sourceTree = "<group>"; };
-		AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Pulse_tvOS.xcframework; path = ../Pulse/Pulse_tvOS.xcframework; sourceTree = "<group>"; };
 		C405B2401BFB6D3E00C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C405B2431BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C405B2451BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,8 +163,8 @@
 		CF070B711E9FA2D40043348C /* CompanionAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanionAdViewController.xib; sourceTree = "<group>"; };
 		CFD386E51E9BE1F700316CD9 /* CompanionPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanionPlayerViewController.h; sourceTree = "<group>"; };
 		CFD386E61E9BE1F700316CD9 /* CompanionPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanionPlayerViewController.m; sourceTree = "<group>"; };
-		CFD55C6A1E3A596500656D06 /* Pulse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse.framework; path = ../Pulse/Pulse.framework; sourceTree = "<group>"; };
-		CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pulse_tvOS.framework; path = ../Pulse/Pulse_tvOS.framework; sourceTree = "<group>"; };
+		CFD55C6A1E3A596500656D06 /* Pulse.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Pulse.xcframework; path = ../Pulse/Pulse.xcframework; sourceTree = "<group>"; };
+		CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Pulse_tvOS.xcframework; path = ../Pulse/Pulse_tvOS.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4100DB31BFB658D00B3F348 /* AVKit.framework in Frameworks */,
-				AB23F96F25F7C8D700DE9B55 /* Pulse_tvOS.xcframework in Frameworks */,
+				AB23F99825F7D26900DE9B55 /* Pulse_tvOS.xcframework in Frameworks */,
 				C4100DB11BFB658800B3F348 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,9 +183,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
-				AB23F96825F7C8C900DE9B55 /* Pulse.xcframework in Frameworks */,
+				AB23F99325F7D26000DE9B55 /* Pulse.xcframework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
-				AB23F96A25F7C8C900DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */,
+				AB23F99E25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,9 +246,6 @@
 		C4100DAD1BFB655500B3F348 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AB23F96E25F7C8D700DE9B55 /* Pulse_tvOS.xcframework */,
-				AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */,
-				AB23F96625F7C8C900DE9B55 /* Pulse.xcframework */,
 				C4100DAF1BFB656200B3F348 /* TVOS */,
 				C4100DAE1BFB655D00B3F348 /* iOS */,
 			);
@@ -260,7 +255,8 @@
 		C4100DAE1BFB655D00B3F348 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CFD55C6A1E3A596500656D06 /* Pulse.framework */,
+				AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */,
+				CFD55C6A1E3A596500656D06 /* Pulse.xcframework */,
 				C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */,
 				C45CDC141BCBCE4700653D49 /* AVKit.framework */,
 			);
@@ -270,7 +266,7 @@
 		C4100DAF1BFB656200B3F348 /* TVOS */ = {
 			isa = PBXGroup;
 			children = (
-				CFD55C6D1E3A597200656D06 /* Pulse_tvOS.framework */,
+				CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */,
 				C4100DB21BFB658D00B3F348 /* AVKit.framework */,
 				C4100DB01BFB658800B3F348 /* AVFoundation.framework */,
 			);
@@ -407,8 +403,8 @@
 				C45CDBD31BCBA8DC00653D49 /* Sources */,
 				C45CDBD41BCBA8DC00653D49 /* Frameworks */,
 				C45CDBD51BCBA8DC00653D49 /* Resources */,
-				CF070B6D1E9F6F030043348C /* Embed Frameworks */,
 				CFFEC0961E85728A007A80CA /* ShellScript */,
+				AB23F99525F7D26000DE9B55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
