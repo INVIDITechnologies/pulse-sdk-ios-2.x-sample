@@ -13,6 +13,7 @@
 #import "SkipViewController.h"
 #import "SkinViewController.h"
 #import "PauseAdViewController.h"
+#import "NextAdThumbnailController.h"
 #import "VideoItemCell.h"
 
 typedef enum : NSUInteger {
@@ -26,7 +27,7 @@ typedef enum : NSUInteger {
  An View Controller for playing back video on iOS devices like the iPad and iPhone.
  This supports the new picture-in-picture mode.
 */
-@interface PlayerViewController () <OOPulseSessionDelegate, SkipViewControllerDelegate, SkinViewControllerDelegate, PauseAdViewControllerDelegate> {
+@interface PlayerViewController () <OOPulseSessionDelegate, SkipViewControllerDelegate, SkinViewControllerDelegate, NextAdThumbnailControllerDelegate, PauseAdViewControllerDelegate> {
 
   // Used to restore the playback rate when returning from background mode
   float playbackRateBeforeBackground;
@@ -35,7 +36,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) PauseAdViewController *pauseAdViewController;
 @property (strong, nonatomic) SkipViewController *skipViewController;
 @property (strong, nonatomic) SkinViewController *skinViewController;
-
+@property (strong, nonatomic) NextAdThumbnailController *nextAdThumbnailController;
 @property (assign, nonatomic) PlayerState state;
 @property (assign, nonatomic) BOOL pictureInPictureActive;
 
@@ -64,6 +65,8 @@ typedef enum : NSUInteger {
     _skinViewController.delegate = self;
     _pauseAdViewController = [[PauseAdViewController alloc] initWithNibName:@"PauseAdViewController" bundle:[NSBundle mainBundle]];
     _pauseAdViewController.delegate = self;
+    _nextAdThumbnailController = [[NextAdThumbnailController alloc] initWithNibName:@"NextAdThumbnailController" bundle:[NSBundle mainBundle]];
+    _nextAdThumbnailController.delegate = self;
   }
   return self;
 }
@@ -101,6 +104,12 @@ typedef enum : NSUInteger {
   [self.view addSubview:self.pauseAdViewController.view];
   [self.pauseAdViewController.view setFrame:self.view.frame];
   
+  // Create a next ad thumbnail controller
+  self.nextAdThumbnailController = [[NextAdThumbnailController alloc] initWithNibName:@"NextAdThumbnailController" bundle:[NSBundle mainBundle]];
+  [self addChildViewController:self.nextAdThumbnailController];
+  [self.view addSubview:self.nextAdThumbnailController.view];
+  [self.nextAdThumbnailController.view setFrame:CGRectInset(self.view.frame, 10, 0)];
+    
   // Create a skip view controller
   self.skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
   self.skipViewController.delegate = self;
@@ -215,6 +224,7 @@ typedef enum : NSUInteger {
     if ([notification.object asset] == self.adAsset) {
       self.adAsset = nil;
       [self.videoAd adFinished];
+      self.nextAdThumbnailController.view.hidden = YES;
     }
     else if ([notification.object asset] == self.contentAsset) {
       [self.session contentFinished];
@@ -326,6 +336,7 @@ typedef enum : NSUInteger {
 - (void)preloadNextAdWithAd:(id<OOPulseVideoAd>)ad
 {
     NSLog(@"****************** Preload Next Ad now *************************");
+    [self.nextAdThumbnailController  getNextAdThumbnailImage:[ad.mediaFiles.firstObject URL]];
 }
 
 - (void)showPauseAd:(id<OOPulsePauseAd>)ad
@@ -420,6 +431,7 @@ typedef enum : NSUInteger {
 - (void)skipButtonWasPressed
 {
   [self.videoAd adSkipped];
+  self.nextAdThumbnailController.view.hidden = YES;
 }
 
 #pragma mark - Helper methods
