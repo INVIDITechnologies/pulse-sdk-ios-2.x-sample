@@ -389,6 +389,7 @@
 				C4100D9C1BFB64CF00B3F348 /* Frameworks */,
 				C4100DA01BFB64CF00B3F348 /* Resources */,
 				CF007D011E3902ED001E5B2D /* Embed Frameworks */,
+				CFFEC0971E857291007A80CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -562,7 +563,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.framework/strip-frameworks.sh\"";
+			shellScript = "# bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse.xcframework/strip-frameworks.sh\"\n";
+		};
+		CFFEC0971E857291007A80CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulse_tvOS.xcframework/strip-frameworks.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
