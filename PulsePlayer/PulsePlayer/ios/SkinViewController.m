@@ -190,6 +190,12 @@
   [self scheduleHideControls];
 }
 
+- (void)showControlsAlways
+{
+  self.controlsContainerView.hidden = NO;
+  [self unscheduleHideControls];
+}
+
 - (void)toggleControls
 {
   if (self.controlsContainerView.hidden == YES) {
@@ -211,7 +217,6 @@
   self.isPlaying = false;
   [self.player pause];
   [self.playPauseButton setTitle:ICON_PLAY forState:UIControlStateNormal];
-  [self unscheduleHideControls];
 }
 
 - (void)play
@@ -219,7 +224,6 @@
   self.isPlaying = true;
   [self.player play];
   [self.playPauseButton setTitle:ICON_PAUSE forState:UIControlStateNormal];
-  [self scheduleHideControls];
 }
 
 - (void)enterFullscreen
@@ -289,12 +293,10 @@
 }
 - (IBAction)playPauseButtonPressed
 {
-  [self scheduleHideControls];
   if (self.isPlaying) {
     if ([self.delegate respondsToSelector:@selector(userPausedVideo)])
       [self.delegate userPausedVideo];
     [self pause];
-    
   } else {
     if ([self.delegate respondsToSelector:@selector(userResumedVideo)])
       [self.delegate userResumedVideo];
