@@ -210,6 +210,12 @@
   [self.closeButtonView setHidden:YES];
 }
 
+- (void)changeToPauseIcon
+{
+    self.isPlaying = true;
+    [self.playPauseButton setTitle:ICON_PAUSE forState:UIControlStateNormal];
+}
+
 #pragma mark - Playback
 
 - (void)pause

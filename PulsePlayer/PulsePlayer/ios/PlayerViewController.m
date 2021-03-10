@@ -278,11 +278,14 @@ typedef enum : NSUInteger {
   self.adAsset = nil;
   self.skipViewController.view.hidden = YES;
 
-  if (self.contentItem)
-    [self play:self.contentItem];
+    if (self.contentItem){
+        [self.skinViewController changeToPauseIcon];
+        [self play:self.contentItem];
+    }
   else {
     [self.contentAsset preloadWithTimeout:15 success:^(AVAsset *asset) {
       self.contentItem = [AVPlayerItem playerItemWithAsset:asset];
+      [self.skinViewController changeToPauseIcon];
       [self play:self.contentItem];
     } failure:^(OOPulseAdError error) {
       [self dismissViewControllerAnimated:YES completion:nil];
@@ -315,6 +318,7 @@ typedef enum : NSUInteger {
   [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
+    [self.skinViewController changeToPauseIcon];
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
