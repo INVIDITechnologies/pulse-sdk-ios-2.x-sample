@@ -278,11 +278,14 @@ typedef enum : NSUInteger {
   self.adAsset = nil;
   self.skipViewController.view.hidden = YES;
 
-  if (self.contentItem)
-    [self play:self.contentItem];
+    if (self.contentItem){
+        [self.skinViewController changeToPauseIcon];
+        [self play:self.contentItem];
+    }
   else {
     [self.contentAsset preloadWithTimeout:15 success:^(AVAsset *asset) {
       self.contentItem = [AVPlayerItem playerItemWithAsset:asset];
+      [self.skinViewController changeToPauseIcon];
       [self play:self.contentItem];
     } failure:^(OOPulseAdError error) {
       [self dismissViewControllerAnimated:YES completion:nil];
@@ -296,9 +299,8 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self.player replaceCurrentItemWithPlayerItem:nil];
-  [self.skinViewController unscheduleHideControls];
+  [self.skinViewController showControlsAlways];
   self.skinViewController.requiresLinearPlayback = YES;
-
   [self setIsLoading:YES];
 }
 
@@ -316,7 +318,7 @@ typedef enum : NSUInteger {
   [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
-    [self.skinViewController unscheduleHideControls];
+    [self.skinViewController changeToPauseIcon];
     [self play:[AVPlayerItem playerItemWithAsset:asset]];
   } failure:^(OOPulseAdError error) {
     self.adAsset = nil;
@@ -395,7 +397,12 @@ typedef enum : NSUInteger {
       NSLog(@"Content paused");
       [self.session contentPaused];
     }
-  }
+  } else if ([self isAssetActive:self.adAsset]) {
+      if (self.state == PlayerStatePlaying) {
+        NSLog(@"Ad paused");
+        [self.videoAd adPaused];
+      }
+    }
 }
 
 - (void)userResumedVideo
@@ -406,7 +413,13 @@ typedef enum : NSUInteger {
       NSLog(@"Content resumed");
       [self.session contentStarted];
     }
-  }
+  } else if ([self isAssetActive:self.adAsset]) {
+      if (self.state == PlayerStatePlaying) {
+        self.pauseAdViewController.ad = nil;
+        NSLog(@"Ad resumed");
+        [self.videoAd adResumed];
+      }
+    }
 }
 
 - (void)playerStateChanged:(OOPlayerState)playerState

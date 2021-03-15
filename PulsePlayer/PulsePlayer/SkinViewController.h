@@ -29,9 +29,10 @@
 
 - (void)toggleControls;
 - (void)showControls;
-- (void)unscheduleHideControls;
+- (void)showControlsAlways;
 - (void)hideControls;
 - (void)disableCloseButton;
+- (void)changeToPauseIcon;
 
 @property (weak, nonatomic) IBOutlet UIView *contentOverlayView;
 
