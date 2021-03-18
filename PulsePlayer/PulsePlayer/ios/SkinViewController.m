@@ -69,7 +69,6 @@
   UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoPressed:)];
   [self.playerView addGestureRecognizer:singleFingerTap];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

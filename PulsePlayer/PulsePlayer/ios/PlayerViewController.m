@@ -319,10 +319,20 @@ typedef enum : NSUInteger {
   // should select the ideal media file based on size, bandwidth and format
   // considerations.
   self.adAsset = [AVAsset assetWithURL:[ad.mediaFiles.firstObject URL]];
+    
 
   [self.player pause];
   [self setIsLoading:YES];
-  [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
+    
+  //Declare friendly obstructions
+  INOmidFriendlyObstruction *skipAd = [[INOmidFriendlyObstruction alloc] initWithView:self.skipViewController.view purpose:INOmidFriendlyObstructionPurposeVIDEOCONTROLS detailedReason:@"Button to skip Ad"];
+  NSArray<INOmidFriendlyObstruction *> *friendlyObs = [NSArray arrayWithObjects:skipAd,nil];
+  if ([self.videoItem.title isEqual: @"OMSDK Certification - skipAd as friendly obstruction"]) {
+     [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com" friendlyObstructions:friendlyObs];
+  } else {
+     [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
+  }
+  
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
     [self.skinViewController changeToPauseIcon];
