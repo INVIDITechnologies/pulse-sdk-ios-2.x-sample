@@ -63,9 +63,8 @@
   
   self.playerLayer = [[AVPlayerLayer alloc] init];
   self.playerLayer.player = self.player;
-  self.playerLayer.videoGravity = AVLayerVideoGravityResize;
+  self.playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
   [self.playerView.layer insertSublayer:self.playerLayer atIndex:0];
-    
     
   UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoPressed:)];
