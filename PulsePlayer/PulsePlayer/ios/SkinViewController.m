@@ -38,7 +38,6 @@
 
 - (IBAction)playPauseButtonPressed;
 - (IBAction)closeButtonPressed;
-- (IBAction)videoPressed;
 - (IBAction)fullscreenButtonPressed;
 
 @end
@@ -66,6 +65,12 @@
   self.playerLayer.player = self.player;
   self.playerLayer.videoGravity = AVLayerVideoGravityResize;
   [self.playerView.layer insertSublayer:self.playerLayer atIndex:0];
+    
+    
+  UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoPressed:)];
+  [self.playerView addGestureRecognizer:singleFingerTap];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -322,13 +327,11 @@
     }
 }
 
-- (IBAction)videoPressed {
-  if (self.controlsContainerView.hidden) {
-    
-  }
-  if ([self.delegate respondsToSelector:@selector(userTappedVideo)]) {
-    [self.delegate userTappedVideo];
-  }
+- (void)videoPressed:(UITapGestureRecognizer *)recognizer
+{
+    if ([self.delegate respondsToSelector:@selector(userTappedVideo)]) {
+      [self.delegate userTappedVideo];
+    }
 }
 
 #pragma mark - Helpers
