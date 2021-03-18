@@ -17,6 +17,7 @@
 @interface SkipViewController : UIViewController
 
 @property (weak, nonatomic) id<SkipViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIView *background;
 
 - (void)updateWithSkippable:(BOOL)isSkippable skipOffset:(NSTimeInterval)offset adPosition:(NSTimeInterval)position;
 

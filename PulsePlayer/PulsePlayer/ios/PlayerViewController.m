@@ -108,7 +108,12 @@ typedef enum : NSUInteger {
   self.skipViewController.delegate = self;
   [self addChildViewController:self.skipViewController];
   [self.view addSubview:self.skipViewController.view];
-  [self.skipViewController.view setFrame:CGRectInset(self.view.frame, 0, 20)];
+
+  CGFloat xCordinate = self.skinViewController.playerView.frame.size.width - self.skipViewController.background.frame.size.width;
+  CGFloat yCordinate = self.skinViewController.playerView.frame.origin.y;
+  CGFloat width = self.skipViewController.background.frame.size.width;
+  CGFloat height =self.skipViewController.background.frame.size.height;
+  [self.skipViewController.view setFrame:CGRectMake(xCordinate, yCordinate, width, height)];
 }
 
 - (void)observeAppState
