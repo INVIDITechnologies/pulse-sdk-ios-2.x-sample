@@ -27,7 +27,6 @@
 @property (strong, nonatomic) AVPlayerLayer *playerLayer;
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, assign) BOOL isFullscreen;
-
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 @property (weak, nonatomic) IBOutlet UIView *closeButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
@@ -65,7 +64,8 @@
   
   self.playerLayer = [[AVPlayerLayer alloc] init];
   self.playerLayer.player = self.player;
-  [self.view.layer insertSublayer:self.playerLayer atIndex:0];
+  self.playerLayer.videoGravity = AVLayerVideoGravityResize;
+  [self.playerView.layer insertSublayer:self.playerLayer atIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,7 +78,7 @@
 - (void)viewWillLayoutSubviews
 {
   [super viewWillLayoutSubviews];
-  self.playerLayer.frame = self.view.bounds;
+  self.playerLayer.frame = self.playerView.bounds;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

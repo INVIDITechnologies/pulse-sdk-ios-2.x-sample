@@ -35,6 +35,7 @@
 - (void)changeToPauseIcon;
 
 @property (weak, nonatomic) IBOutlet UIView *contentOverlayView;
+@property (weak, nonatomic) IBOutlet UIView *playerView;
 
 @property (weak, nonatomic) id<SkinViewControllerDelegate> delegate;
 @end

@@ -87,20 +87,22 @@ typedef enum : NSUInteger {
                                            selector:@selector(onPlaybackFinished:)
                                                name:AVPlayerItemDidPlayToEndTimeNotification
                                              object:nil];
+
 }
 
 - (void)initializeView
 {
+    
   // Create a AVPlayerViewController that will be responsible for displaying video
   self.skinViewController.player = self.player;
   [self addChildViewController:self.skinViewController];
   [self.view addSubview:self.skinViewController.view];
   [self.skinViewController.view setFrame:self.view.frame];
-  
+    
   [self addChildViewController:self.pauseAdViewController];
   [self.view addSubview:self.pauseAdViewController.view];
   [self.pauseAdViewController.view setFrame:self.view.frame];
-  
+    
   // Create a skip view controller
   self.skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
   self.skipViewController.delegate = self;
@@ -315,7 +317,7 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self setIsLoading:YES];
-  [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
+  [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
     [self.skinViewController changeToPauseIcon];
