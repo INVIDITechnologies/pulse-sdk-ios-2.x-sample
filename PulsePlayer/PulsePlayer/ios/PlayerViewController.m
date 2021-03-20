@@ -109,10 +109,10 @@ typedef enum : NSUInteger {
   [self addChildViewController:self.skipViewController];
   [self.view addSubview:self.skipViewController.view];
     
-  CGFloat xCordinate = self.skinViewController.playerView.frame.size.width - self.skipViewController.background.frame.size.width;
+  CGFloat xCordinate = self.skinViewController.playerView.frame.size.width - self.skipViewController.view.frame.size.width;
   CGFloat yCordinate = self.skinViewController.playerView.frame.origin.y;
-  CGFloat width = self.skipViewController.background.frame.size.width;
-  CGFloat height = self.skipViewController.background.frame.size.height;
+  CGFloat width = self.skipViewController.view.frame.size.width;
+  CGFloat height = self.skipViewController.view.frame.size.height;
   [self.skipViewController.view setFrame:CGRectMake(xCordinate, yCordinate, width, height)];
 }
 
