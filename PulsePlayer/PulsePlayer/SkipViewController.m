@@ -10,10 +10,10 @@
 
 @interface SkipViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *background;
 @property (strong, nonatomic) NSString *skipLabelText;
 @property (weak, nonatomic) IBOutlet UILabel *skipLabel;
 @property (weak, nonatomic) IBOutlet UIButton *skipButton;
-
 
 @end
 
