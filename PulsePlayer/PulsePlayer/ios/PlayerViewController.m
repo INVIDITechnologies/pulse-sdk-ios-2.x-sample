@@ -108,11 +108,11 @@ typedef enum : NSUInteger {
   self.skipViewController.delegate = self;
   [self addChildViewController:self.skipViewController];
   [self.view addSubview:self.skipViewController.view];
-
+    
   CGFloat xCordinate = self.skinViewController.playerView.frame.size.width - self.skipViewController.background.frame.size.width;
   CGFloat yCordinate = self.skinViewController.playerView.frame.origin.y;
   CGFloat width = self.skipViewController.background.frame.size.width;
-  CGFloat height =self.skipViewController.background.frame.size.height;
+  CGFloat height = self.skipViewController.background.frame.size.height;
   [self.skipViewController.view setFrame:CGRectMake(xCordinate, yCordinate, width, height)];
 }
 
@@ -325,7 +325,7 @@ typedef enum : NSUInteger {
   [self setIsLoading:YES];
     
   //Declare friendly obstructions
-  INOmidFriendlyObstruction *skipAd = [[INOmidFriendlyObstruction alloc] initWithView:self.skipViewController.view purpose:INOmidFriendlyObstructionPurposeVIDEOCONTROLS detailedReason:@"Button to skip Ad"];
+  INOmidFriendlyObstruction *skipAd = [[INOmidFriendlyObstruction alloc] initWithView:self.skipViewController.view purpose:INOmidFriendlyObstructionPurposeVIDEOCONTROLS detailedReason:@"Skip Ad View"];
   NSArray<INOmidFriendlyObstruction *> *friendlyObs = [NSArray arrayWithObjects:skipAd,nil];
   if ([self.videoItem.title isEqual: @"OMSDK Certification - skipAd as friendly obstruction"]) {
      [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com" friendlyObstructions:friendlyObs];
@@ -438,6 +438,7 @@ typedef enum : NSUInteger {
       }
     }
 }
+
 
 - (void)playerStateChanged:(OOPlayerState)playerState
 {
