@@ -36,7 +36,6 @@
     CMTime time = CMTimeMake(1, 1);
     CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
     _nextAdImageView.image = [UIImage imageWithCGImage:imageRef];
-
 }
 
 @end
