@@ -67,6 +67,8 @@ typedef enum : NSUInteger {
     _pauseAdViewController.delegate = self;
     _nextAdThumbnailController = [[NextAdThumbnailController alloc] initWithNibName:@"NextAdThumbnailController" bundle:[NSBundle mainBundle]];
     _nextAdThumbnailController.delegate = self;
+    _skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
+    _skipViewController.delegate = self;
   }
   return self;
 }
@@ -106,23 +108,23 @@ typedef enum : NSUInteger {
   [self.view addSubview:self.pauseAdViewController.view];
   [self.pauseAdViewController.view setFrame:self.view.frame];
     
-  // Create a skip view controller
-  self.skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
-  self.skipViewController.delegate = self;
+  // add skip view controller view
   [self addChildViewController:self.skipViewController];
   [self.view addSubview:self.skipViewController.view];
-    
   CGFloat xCordinate = self.skinViewController.playerView.frame.size.width - self.skipViewController.view.frame.size.width;
   CGFloat yCordinate = self.skinViewController.playerView.frame.origin.y;
   CGFloat width = self.skipViewController.view.frame.size.width;
   CGFloat height = self.skipViewController.view.frame.size.height;
   [self.skipViewController.view setFrame:CGRectMake(xCordinate, yCordinate, width, height)];
     
-  // Create a next ad thumbnail controller
-  self.nextAdThumbnailController = [[NextAdThumbnailController alloc] initWithNibName:@"NextAdThumbnailController" bundle:[NSBundle mainBundle]];
+  // add next ad thumbnail controller view
   [self addChildViewController:self.nextAdThumbnailController];
   [self.view addSubview:self.nextAdThumbnailController.view];
-  [self.nextAdThumbnailController.view setFrame:CGRectInset(self.view.frame, 10, 0)];
+  CGFloat xCordinate1 = self.skinViewController.playerView.frame.size.width - self.nextAdThumbnailController.view.frame.size.width;
+  CGFloat yCordinate1 = self.skinViewController.playerView.frame.size.height + self.skinViewController.playerView.frame.origin.y - self.nextAdThumbnailController.view.frame.size.height;
+  CGFloat width1 = self.nextAdThumbnailController.view.frame.size.width;
+  CGFloat height1 = self.nextAdThumbnailController.view.frame.size.height;
+  [self.nextAdThumbnailController.view setFrame:CGRectMake(xCordinate1, yCordinate1, width1, height1)];
 }
 
 - (void)observeAppState
@@ -333,6 +335,7 @@ typedef enum : NSUInteger {
 
   [self.player pause];
   [self setIsLoading:YES];
+  self.nextAdThumbnailController.view.hidden = YES;
     
   //Declare friendly obstructions
   INOmidFriendlyObstruction *skipAd = [[INOmidFriendlyObstruction alloc] initWithView:self.skipViewController.view purpose:INOmidFriendlyObstructionPurposeVIDEOCONTROLS detailedReason:@"Skip Ad View"];
@@ -356,7 +359,7 @@ typedef enum : NSUInteger {
 - (void)preloadNextAdWithAd:(id<OOPulseVideoAd>)ad
 {
     NSLog(@"****************** Preload Next Ad now *************************");
-    [self.nextAdThumbnailController  getNextAdThumbnailImage:[ad.mediaFiles.firstObject URL]];
+    [self.nextAdThumbnailController  getNextAdThumbnail:[ad.mediaFiles.firstObject URL]];
 }
 
 - (void)showPauseAd:(id<OOPulsePauseAd>)ad

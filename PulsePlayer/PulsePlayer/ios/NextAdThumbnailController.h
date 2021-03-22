@@ -16,11 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NextAdThumbnailController : UIViewController
 
 @property (weak, nonatomic) id<NextAdThumbnailControllerDelegate> delegate;
-@property (strong, nonatomic) IBOutlet UIView *NextAdView;
-@property (strong, nonatomic) IBOutlet UIImageView *NextAdImageView;
 
-
--(void)getNextAdThumbnailImage:(NSURL *)url;
+-(void)getNextAdThumbnail:(NSURL *)url;
 
 @end
 

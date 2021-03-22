@@ -7,7 +7,12 @@
 //
 
 #import "NextAdThumbnailController.h"
-#import <AVfoundation/AVFoundation.h>
+#import <AVFoundation/AVFoundation.h>
+@interface NextAdThumbnailController ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *nextAdImageView;
+
+@end
 
 @implementation NextAdThumbnailController
 
@@ -20,28 +25,18 @@
 */
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.hidden = YES;
 }
 
-- (void)getNextAdThumbnailImage: (NSURL *)url
+- (void)getNextAdThumbnail: (NSURL *)url
 {
     self.view.hidden = NO;
-    _NextAdImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 80, 60)];
     AVAsset* asset = [AVAsset assetWithURL:url];
     AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
     CMTime time = CMTimeMake(1, 1);
     CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-    _NextAdImageView.image = [UIImage imageWithCGImage:imageRef];
-    
-    CGRect NextAdImageFrame = self.NextAdImageView.frame;
-    
-    NextAdImageFrame.size.width = NextAdImageFrame.size.width - self.view.frame.origin.x;
-    NextAdImageFrame.origin.x = self.view.frame.size.width - NextAdImageFrame.size.width;
-    
-    NextAdImageFrame.origin.y = self.view.frame.size.height - 450;
+    _nextAdImageView.image = [UIImage imageWithCGImage:imageRef];
 
-    self.NextAdImageView.frame = NextAdImageFrame;
-    [self.view addSubview:_NextAdImageView];
-  
 }
 
 @end

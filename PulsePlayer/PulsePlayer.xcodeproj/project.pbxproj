@@ -15,6 +15,8 @@
 		AB23F99925F7D26900DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB23F99E25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; };
 		AB23F99F25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB8A936A26088C9800B7A2D6 /* NextAdThumbnailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8A936926088C9700B7A2D6 /* NextAdThumbnailController.m */; };
+		AB8A936F26088CCA00B7A2D6 /* NextAdThumbnailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8A936D26088CCA00B7A2D6 /* NextAdThumbnailController.xib */; };
 		C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2411BFB6D3E00C07A18 /* Main.storyboard */; };
 		C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2421BFB6E2400C07A18 /* LaunchScreen.storyboard */; };
 		C405B2471BFB6E2400C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2441BFB6E2400C07A18 /* Main.storyboard */; };
@@ -111,6 +113,9 @@
 		AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinViewController.m; sourceTree = "<group>"; };
 		AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkinViewController.xib; sourceTree = "<group>"; };
 		AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OMSDK_Invidi.xcframework; path = ../Pulse/OMSDK_Invidi.xcframework; sourceTree = "<group>"; };
+		AB8A936926088C9700B7A2D6 /* NextAdThumbnailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextAdThumbnailController.m; sourceTree = "<group>"; };
+		AB8A936D26088CCA00B7A2D6 /* NextAdThumbnailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextAdThumbnailController.xib; sourceTree = "<group>"; };
+		AB8A936E26088CCA00B7A2D6 /* NextAdThumbnailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextAdThumbnailController.h; sourceTree = "<group>"; };
 		C405B2401BFB6D3E00C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C405B2431BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C405B2451BFB6E2400C07A18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +214,9 @@
 		C405B23B1BFB6D1500C07A18 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				AB8A936E26088CCA00B7A2D6 /* NextAdThumbnailController.h */,
+				AB8A936D26088CCA00B7A2D6 /* NextAdThumbnailController.xib */,
+				AB8A936926088C9700B7A2D6 /* NextAdThumbnailController.m */,
 				C45CDBEB1BCBA8DC00653D49 /* Info.plist */,
 				C45CDC171BCBCED900653D49 /* PlayerViewController.m */,
 				CFD386E51E9BE1F700316CD9 /* CompanionPlayerViewController.h */,
@@ -520,6 +528,7 @@
 				C47485BD1BCD27BE0056BD05 /* library.json in Resources */,
 				AA609BA01D1AC3F100A12AE8 /* SkinViewController.xib in Resources */,
 				C405B2471BFB6E2400C07A18 /* Main.storyboard in Resources */,
+				AB8A936F26088CCA00B7A2D6 /* NextAdThumbnailController.xib in Resources */,
 				C405B2461BFB6E2400C07A18 /* LaunchScreen.storyboard in Resources */,
 				C44D197D1D240B9600FD97B9 /* PauseAdViewController.xib in Resources */,
 				C47485C71BCD3B050056BD05 /* VideoItemCell.xib in Resources */,
@@ -572,6 +581,7 @@
 				CFD386E71E9BE1F700316CD9 /* CompanionPlayerViewController.m in Sources */,
 				AA609B9D1D1ABA9700A12AE8 /* SkinViewController.m in Sources */,
 				C47485C61BCD3B050056BD05 /* VideoItemCell.m in Sources */,
+				AB8A936A26088C9800B7A2D6 /* NextAdThumbnailController.m in Sources */,
 				C4527C6B1D22B863005C695F /* PassView.m in Sources */,
 				C45CDBDF1BCBA8DC00653D49 /* AppDelegate.m in Sources */,
 				C4D02B8C1BDA2DF100BED479 /* VideoItem.m in Sources */,
