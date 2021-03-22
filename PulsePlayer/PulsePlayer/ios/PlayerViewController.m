@@ -427,6 +427,11 @@ typedef enum : NSUInteger {
    [self.videoAd playerStateChanged:playerState];
 }
 
+
+- (void)playerVolumeChanged:(CGFloat)videoPlayerVolume
+{
+   [self.videoAd playerVolumeChanged:videoPlayerVolume];
+}
 #pragma mark - PauseAdViewControllerDelegate
 
 - (void)adTapped:(id<OOPulseAd>)ad

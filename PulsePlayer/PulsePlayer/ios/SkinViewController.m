@@ -43,7 +43,7 @@
 - (IBAction)closeButtonPressed;
 - (IBAction)videoPressed;
 - (IBAction)fullscreenButtonPressed;
-- (IBAction)playerVolumeChanged:(id)sender;
+- (IBAction)playerVolumeSliderChanged:(id)sender;
 
 
 @end
@@ -318,18 +318,14 @@
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)playerVolumeChanged:(id)sender {
+- (IBAction)playerVolumeSliderChanged:(id)sender {
     //    AVPlayer has no volume property and requires the use of the system volume setting which can be controlled only by the hardware switch or an MPVolumeView
     //   volumecontrol reference- https://github.com/12Rockets/VolumeControl
     //    MPVolumeView only works on an actual device and not on a simulator
     MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-    for (UIView *view in volumeView.subviews) {
-      if ([view isKindOfClass:[UISlider class]]) {
-           // see AVplayer volume API for more information
-           self.player.volume = _volumeSlider.value;
-           break;
-      }
-    }
+    self.player.volume = _volumeSlider.value;
+    [_volumeSlider setContinuous: NO];
+    [self.delegate playerVolumeChanged:self.player.volume];
 }
 
 - (IBAction)fullscreenButtonPressed {
