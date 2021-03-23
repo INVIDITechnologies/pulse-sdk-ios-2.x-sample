@@ -17,6 +17,7 @@
 - (void)userPausedVideo;
 - (void)userResumedVideo;
 - (void)playerStateChanged:(OOPlayerState)playerState;
+- (void)playerVolumeChanged:(CGFloat)videoPlayerVolume;
 
 @end
 
