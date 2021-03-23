@@ -16,6 +16,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SkinViewController.h"
 #import <Pulse/OOPlayerState.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface SkinViewController() {
   // Keeps tracks of AVPlayer timePeriod observer
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) AVPlayerLayer *playerLayer;
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, assign) BOOL isFullscreen;
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 @property (weak, nonatomic) IBOutlet UIView *closeButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
@@ -39,6 +41,7 @@
 - (IBAction)playPauseButtonPressed;
 - (IBAction)closeButtonPressed;
 - (IBAction)fullscreenButtonPressed;
+- (IBAction)playerVolumeSliderChanged:(id)sender;
 
 @end
 
@@ -58,6 +61,7 @@
   self.fullscreenButton.titleLabel.text = ICON_FULLSCREEN;
   self.isFullscreen = false;
   self.positionSlider.continuous = YES;
+  self.volumeSlider.continuous = NO;
   [self.positionSlider addTarget:self action:@selector(onSliderEvent:withEvent:)
                 forControlEvents: UIControlEventValueChanged | UIControlEventTouchCancel];
   
@@ -315,6 +319,11 @@
 
 - (IBAction)closeButtonPressed {
   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)playerVolumeSliderChanged:(id)sender {
+  self.player.volume = _volumeSlider.value;
+  [self.delegate playerVolumeChanged:self.player.volume];
 }
 
 - (IBAction)fullscreenButtonPressed {
