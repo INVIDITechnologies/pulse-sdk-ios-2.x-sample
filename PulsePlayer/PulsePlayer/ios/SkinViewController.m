@@ -28,7 +28,7 @@
 @property (strong, nonatomic) AVPlayerLayer *playerLayer;
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, assign) BOOL isFullscreen;
-@property (strong, nonatomic) IBOutlet UISlider *volumeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 @property (weak, nonatomic) IBOutlet UIView *closeButtonView;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
