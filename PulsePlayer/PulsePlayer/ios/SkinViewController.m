@@ -64,6 +64,7 @@
   self.fullscreenButton.titleLabel.text = ICON_FULLSCREEN;
   self.isFullscreen = false;
   self.positionSlider.continuous = YES;
+  self.volumeSlider.continuous = NO;
   [self.positionSlider addTarget:self action:@selector(onSliderEvent:withEvent:)
                 forControlEvents: UIControlEventValueChanged | UIControlEventTouchCancel];
   
@@ -319,12 +320,7 @@
 }
 
 - (IBAction)playerVolumeSliderChanged:(id)sender {
-    //    AVPlayer has no volume property and requires the use of the system volume setting which can be controlled only by the hardware switch or an MPVolumeView
-    //   volumecontrol reference- https://github.com/12Rockets/VolumeControl
-    //    MPVolumeView only works on an actual device and not on a simulator
-    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
     self.player.volume = _volumeSlider.value;
-    [_volumeSlider setContinuous: NO];
     [self.delegate playerVolumeChanged:self.player.volume];
 }
 
