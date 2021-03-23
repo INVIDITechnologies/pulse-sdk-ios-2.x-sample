@@ -13,6 +13,7 @@
 #import "SkipViewController.h"
 #import "SkinViewController.h"
 #import "PauseAdViewController.h"
+#import "NextAdThumbnailController.h"
 #import "VideoItemCell.h"
 
 typedef enum : NSUInteger {
@@ -26,7 +27,7 @@ typedef enum : NSUInteger {
  An View Controller for playing back video on iOS devices like the iPad and iPhone.
  This supports the new picture-in-picture mode.
 */
-@interface PlayerViewController () <OOPulseSessionDelegate, SkipViewControllerDelegate, SkinViewControllerDelegate, PauseAdViewControllerDelegate> {
+@interface PlayerViewController () <OOPulseSessionDelegate, SkipViewControllerDelegate, SkinViewControllerDelegate, NextAdThumbnailControllerDelegate, PauseAdViewControllerDelegate> {
 
   // Used to restore the playback rate when returning from background mode
   float playbackRateBeforeBackground;
@@ -35,7 +36,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) PauseAdViewController *pauseAdViewController;
 @property (strong, nonatomic) SkipViewController *skipViewController;
 @property (strong, nonatomic) SkinViewController *skinViewController;
-
+@property (strong, nonatomic) NextAdThumbnailController *nextAdThumbnailController;
 @property (assign, nonatomic) PlayerState state;
 @property (assign, nonatomic) BOOL pictureInPictureActive;
 
@@ -64,6 +65,10 @@ typedef enum : NSUInteger {
     _skinViewController.delegate = self;
     _pauseAdViewController = [[PauseAdViewController alloc] initWithNibName:@"PauseAdViewController" bundle:[NSBundle mainBundle]];
     _pauseAdViewController.delegate = self;
+    _nextAdThumbnailController = [[NextAdThumbnailController alloc] initWithNibName:@"NextAdThumbnailController" bundle:[NSBundle mainBundle]];
+    _nextAdThumbnailController.delegate = self;
+    _skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
+    _skipViewController.delegate = self;
   }
   return self;
 }
@@ -87,26 +92,39 @@ typedef enum : NSUInteger {
                                            selector:@selector(onPlaybackFinished:)
                                                name:AVPlayerItemDidPlayToEndTimeNotification
                                              object:nil];
+
 }
 
 - (void)initializeView
 {
+    
   // Create a AVPlayerViewController that will be responsible for displaying video
   self.skinViewController.player = self.player;
   [self addChildViewController:self.skinViewController];
   [self.view addSubview:self.skinViewController.view];
   [self.skinViewController.view setFrame:self.view.frame];
-  
+    
   [self addChildViewController:self.pauseAdViewController];
   [self.view addSubview:self.pauseAdViewController.view];
   [self.pauseAdViewController.view setFrame:self.view.frame];
-  
-  // Create a skip view controller
-  self.skipViewController = [[SkipViewController alloc] initWithNibName:@"SkipViewController" bundle:[NSBundle mainBundle]];
-  self.skipViewController.delegate = self;
+    
+  // add skip view controller view
   [self addChildViewController:self.skipViewController];
   [self.view addSubview:self.skipViewController.view];
-  [self.skipViewController.view setFrame:CGRectInset(self.view.frame, 0, 20)];
+  CGFloat xCordinate = self.skinViewController.playerView.frame.size.width - self.skipViewController.view.frame.size.width;
+  CGFloat yCordinate = self.skinViewController.playerView.frame.origin.y;
+  CGFloat width = self.skipViewController.view.frame.size.width;
+  CGFloat height = self.skipViewController.view.frame.size.height;
+  [self.skipViewController.view setFrame:CGRectMake(xCordinate, yCordinate, width, height)];
+    
+  // add next ad thumbnail controller view
+  [self addChildViewController:self.nextAdThumbnailController];
+  [self.view addSubview:self.nextAdThumbnailController.view];
+  CGFloat xCordinate1 = self.skinViewController.playerView.frame.size.width - self.nextAdThumbnailController.view.frame.size.width;
+  CGFloat yCordinate1 = self.skinViewController.playerView.frame.size.height + self.skinViewController.playerView.frame.origin.y - self.nextAdThumbnailController.view.frame.size.height;
+  CGFloat width1 = self.nextAdThumbnailController.view.frame.size.width;
+  CGFloat height1 = self.nextAdThumbnailController.view.frame.size.height;
+  [self.nextAdThumbnailController.view setFrame:CGRectMake(xCordinate1, yCordinate1, width1, height1)];
 }
 
 - (void)observeAppState
@@ -215,6 +233,7 @@ typedef enum : NSUInteger {
     if ([notification.object asset] == self.adAsset) {
       self.adAsset = nil;
       [self.videoAd adFinished];
+      self.nextAdThumbnailController.view.hidden = YES;
     }
     else if ([notification.object asset] == self.contentAsset) {
       [self.session contentFinished];
@@ -312,10 +331,21 @@ typedef enum : NSUInteger {
   // should select the ideal media file based on size, bandwidth and format
   // considerations.
   self.adAsset = [AVAsset assetWithURL:[ad.mediaFiles.firstObject URL]];
+    
 
   [self.player pause];
   [self setIsLoading:YES];
-  [INOmidAdSession createOmidAdSessionWithView:self.view pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
+  self.nextAdThumbnailController.view.hidden = YES;
+    
+  //Declare friendly obstructions
+  INOmidFriendlyObstruction *skipAd = [[INOmidFriendlyObstruction alloc] initWithView:self.skipViewController.view purpose:INOmidFriendlyObstructionPurposeVIDEOCONTROLS detailedReason:@"Skip Ad View"];
+  NSArray<INOmidFriendlyObstruction *> *friendlyObs = [NSArray arrayWithObjects:skipAd,nil];
+  if ([self.videoItem.title isEqual: @"OMSDK Certification - skipAd as friendly obstruction"]) {
+     [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com" friendlyObstructions:friendlyObs];
+  } else {
+     [INOmidAdSession createOmidAdSessionWithView:self.skinViewController.playerView pulseVideoAd:ad contentUrl:@"invidi.pulseplayer.com"];
+  }
+  
   [self.adAsset preloadWithTimeout:timeout success:^(AVAsset *asset) {
     self.videoAd = ad;
     [self.skinViewController changeToPauseIcon];
@@ -329,6 +359,7 @@ typedef enum : NSUInteger {
 - (void)preloadNextAdWithAd:(id<OOPulseVideoAd>)ad
 {
     NSLog(@"****************** Preload Next Ad now *************************");
+    [self.nextAdThumbnailController  getNextAdThumbnail:[ad.mediaFiles.firstObject URL]];
 }
 
 - (void)showPauseAd:(id<OOPulsePauseAd>)ad
@@ -422,6 +453,7 @@ typedef enum : NSUInteger {
     }
 }
 
+
 - (void)playerStateChanged:(OOPlayerState)playerState
 {
    [self.videoAd playerStateChanged:playerState];
@@ -439,6 +471,7 @@ typedef enum : NSUInteger {
 - (void)skipButtonWasPressed
 {
   [self.videoAd adSkipped];
+  self.nextAdThumbnailController.view.hidden = YES;
 }
 
 #pragma mark - Helper methods

@@ -1,13 +1,25 @@
 [{
+  "tags":             ["vast4.1_OMCert","vast3.0_OMCert"],
+  "midroll-positions": [10, 20],
+  "content-title":    "OMSDK Certification",
+  "content-duration": 52,
+  "content-url":      "https://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
+  "tags":             ["vast4.1_OMCert","vast3.0_OMCert"],
+  "midroll-positions": [10, 20],
+  "content-title":    "OMSDK Certification - skipAd as friendly obstruction",
+  "content-duration": 52,
+  "content-url":      "https://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+},{
   "tags":              [],
   "content-title":     "No ads",
   "content-id":        "demo-none",
   "content-duration":  52,
   "content-url":       "https://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
 },{
-    "tags":             ["om_vast4.1_wrapper","om_vast3.0"],
+  "tags":             ["om_vast4.1","om_vast4.0"],
   "midroll-positions": [10, 20],
-  "content-title":    "OMSDK",
+  "content-title":    "OM AdVerification with Obstructions (skipAd)",
   "content-duration": 52,
   "content-url":      "https://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
 },{
