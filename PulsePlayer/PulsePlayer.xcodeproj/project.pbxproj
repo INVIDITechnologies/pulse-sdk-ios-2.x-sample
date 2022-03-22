@@ -13,8 +13,6 @@
 		AB23F99425F7D26000DE9B55 /* Pulse.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6A1E3A596500656D06 /* Pulse.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB23F99825F7D26900DE9B55 /* Pulse_tvOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */; };
 		AB23F99925F7D26900DE9B55 /* Pulse_tvOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD55C6D1E3A597200656D06 /* Pulse_tvOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB23F99E25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; };
-		AB23F99F25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB8A936A26088C9800B7A2D6 /* NextAdThumbnailController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8A936926088C9700B7A2D6 /* NextAdThumbnailController.m */; };
 		AB8A936F26088CCA00B7A2D6 /* NextAdThumbnailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8A936D26088CCA00B7A2D6 /* NextAdThumbnailController.xib */; };
 		C405B23F1BFB6D3E00C07A18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C405B2411BFB6D3E00C07A18 /* Main.storyboard */; };
@@ -90,7 +88,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				AB23F99425F7D26000DE9B55 /* Pulse.xcframework in Embed Frameworks */,
-				AB23F99F25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +109,6 @@
 		AA609B9B1D1AB5E600A12AE8 /* SkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinViewController.h; sourceTree = "<group>"; };
 		AA609B9C1D1ABA9700A12AE8 /* SkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinViewController.m; sourceTree = "<group>"; };
 		AA609B9F1D1AC3F100A12AE8 /* SkinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkinViewController.xib; sourceTree = "<group>"; };
-		AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OMSDK_Invidi.xcframework; path = ../Pulse/OMSDK_Invidi.xcframework; sourceTree = "<group>"; };
 		AB8A936926088C9700B7A2D6 /* NextAdThumbnailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextAdThumbnailController.m; sourceTree = "<group>"; };
 		AB8A936D26088CCA00B7A2D6 /* NextAdThumbnailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextAdThumbnailController.xib; sourceTree = "<group>"; };
 		AB8A936E26088CCA00B7A2D6 /* NextAdThumbnailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextAdThumbnailController.h; sourceTree = "<group>"; };
@@ -190,7 +186,6 @@
 				C45CDC1B1BCBCFE900653D49 /* AVFoundation.framework in Frameworks */,
 				AB23F99325F7D26000DE9B55 /* Pulse.xcframework in Frameworks */,
 				C45CDC151BCBCE4700653D49 /* AVKit.framework in Frameworks */,
-				AB23F99E25F7D27800DE9B55 /* OMSDK_Invidi.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +258,6 @@
 		C4100DAE1BFB655D00B3F348 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AB23F96725F7C8C900DE9B55 /* OMSDK_Invidi.xcframework */,
 				CFD55C6A1E3A596500656D06 /* Pulse.xcframework */,
 				C45CDC1A1BCBCFE900653D49 /* AVFoundation.framework */,
 				C45CDC141BCBCE4700653D49 /* AVKit.framework */,
