@@ -44,11 +44,18 @@
  },{
  "tags":             ["standard-linears"],
  "midroll-positions": [15, 30],
- "content-title":    "Pre-/mid-/postroll demo",
+ "content-title":    "Pre-/mid-/postroll demo - firstParty",
  "content-id":       "demo",
  "content-duration": 52,
  "content-url":      "https://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
 },{
+  "tags":             ["vast2","vast6","vast-wrapper"],
+  "midroll-positions": [15, 30],
+  "content-title":    "Pre-/mid-/postroll demo - thirdParty",
+  "content-id":       "demo",
+  "content-duration": 52,
+  "content-url":      "https://pulse-demo.vp.videoplaza.tv/resources/media/sintel_trailer_854x480.mp4"
+ },{
  "tags":             ["standard-linears"],
  "category":         "skip-always",
  "midroll-positions": [15, 30],

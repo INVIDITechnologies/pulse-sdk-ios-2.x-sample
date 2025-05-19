@@ -68,6 +68,7 @@
   
   // Set the request settings
   OORequestSettings *requestSettings = [[OORequestSettings alloc] init];
+  requestSettings.userAgentForThirdPartyRequests = IAB;
   requestSettings.linearPlaybackPositions = videoItem.midrollPositions;
   // Here we assume a landscape orientation for video playback
   requestSettings.width = (NSInteger)MAX(self.view.frame.size.width, self.view.frame.size.height);
